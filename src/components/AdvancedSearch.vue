@@ -1,7 +1,24 @@
 <template>
 	<div id="">
-<p>the  search page</p>
+		<div>
 
+
+			<DropDown v-on:valueChanged="addHealthLabels($event)"></DropDown>
+			<DietSearch v-on:dietChanged="addDietLabels($event)"></DietSearch>
+
+			<div>
+				<mdb-form-inline class="mr-auto mb-4">
+					<mdb-input class="mr-sm-2" type="text" placeholder="Search" aria-label="Search" />
+					<mdb-btn outline="success" rounded size="sm" type="submit" class="mr-auto">Search</mdb-btn>
+				</mdb-form-inline>
+
+
+			</div>
+
+
+		</div>
+
+		<p></p>
 		<div class="recipe-grid">
 
 			<div v-for="foodRecipe in foodRecipes" class="effect-1" :key="foodRecipe.id">
@@ -12,7 +29,7 @@
 					<h2>{{foodRecipe.recipe.label}}</h2>
 					<p>By {{foodRecipe.recipe.source}}</p>
 					<div class="effect-btn">
-						<a class="btn" href="#" @click="displayFoodType">Read More</a>
+						<a class="btn" href="#">Read More</a>
 					</div>
 				</div>
 			</div>
@@ -29,17 +46,56 @@
 </template>
 
 <script>
+	import axios from "axios";
+	import DropDown from "./DropDown.vue";
+	import DietSearch from "./DietSearch.vue";
+	import {
+		mdbInput,
+		mdbBtn,
+		mdbFormInline
+	} from 'mdbvue';
+
+
 	export default {
 		name: "AdvancedSearch",
-		props: ['foodRecipes'],
 		components: {
+			DropDown,
+			DietSearch,
+			mdbInput,
+			mdbBtn,
+			mdbFormInline
 
 		},
 		data() {
 			return {
-
+				foodRecipes: [],
+				healthLabels: "",
+				dietLabels:"",
 
 			}
+		},
+		methods: {
+			addHealthLabels(labels) {
+				this.healthLabels = labels;
+			},
+			addDietLabels(diets) {
+				this.dietLabels = diets;
+			}
+		},
+		created() {
+			axios
+				.get(`https://api.edamam.com/search?q=&app_id=efb7b8d6&app_key=0765b41943f91184d10511211580fb3c&health=${this.$route.params.category}`)
+				.then(response => {
+					console.log(response.data.hits);
+					this.foodRecipes = response.data.hits;
+					console.log(this.foodRecipes);
+
+
+				})
+				.catch(err => {
+					console.log(err)
+				})
+
 		},
 	};
 
@@ -52,13 +108,13 @@
 		width: 100%;
 		display: grid;
 		grid-template-columns: 20% 20% 20% 20%;
-		grid-template-rows:auto;
+		grid-template-rows: auto;
 		grid-column-gap: 5%;
 		margin: auto;
 		border: 1px solid red;
-		
+
 	}
-	
+
 	.effect-1 {
 		position: relative;
 		margin-bottom: 30px;
@@ -77,8 +133,8 @@
 
 	.effect-1 .effect-text {
 		position: absolute;
-		width:300px;
-		height:300px;
+		width: 300px;
+		height: 300px;
 		padding: 30px;
 		top: calc(100% - 60px);
 		left: 0;
@@ -117,6 +173,5 @@
 		background: #ffffff;
 		text-decoration: none;
 	}
-
 
 </style>

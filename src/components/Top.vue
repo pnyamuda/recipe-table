@@ -8,9 +8,9 @@
 				</mdb-navbar-brand>
 				<mdb-navbar-toggler>
 					<mdb-navbar-nav>
-						<mdb-nav-item href="#" active>Home</mdb-nav-item>
+						<mdb-nav-item href="#" active><router-link to="/">Home</router-link></mdb-nav-item>
 						<mdb-nav-item href="#">Recipe</mdb-nav-item>
-						<mdb-nav-item href="#">Advanced Search</mdb-nav-item>
+						<mdb-nav-item href="#"><router-link to="/search">Advanced Search</router-link></mdb-nav-item>
 						<mdb-dropdown tag="li" class="nav-item">
 							<mdb-dropdown-toggle tag="a" navLink color="default-color-dark" slot="toggle" waves-fixed>Dropdown</mdb-dropdown-toggle>
 							<mdb-dropdown-menu>

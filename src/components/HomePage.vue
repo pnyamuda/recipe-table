@@ -1,6 +1,8 @@
 <template>
 	<div>
 
+
+
 		<div id="container">
 
 			<div class="effect-1">
@@ -11,7 +13,9 @@
 					<h2>No Sagar</h2>
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed purus consectetur, interdum felis in, auctor ligula.</p>
 					<div class="effect-btn">
-						<a id="low-sugar" class="btn" href="#" @click="displayFoodType">Read More</a>
+						<a id="low-sugar" class="btn" href="#" @click="displayFoodType(low-sugar)">
+							Read More
+						</a>
 					</div>
 				</div>
 			</div>
@@ -27,7 +31,9 @@
 					<h2>Vegan</h2>
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed purus consectetur, interdum felis in, auctor ligula.</p>
 					<div class="effect-btn">
-						<a id="vegan" class="btn" href="#" @click="displayFoodType">Read More</a>
+						<a id="vegan" class="btn" href="#" @click="displayFoodType(vegan)">
+							Read More
+						</a>
 					</div>
 				</div>
 			</div>
@@ -41,7 +47,9 @@
 					<h2>Vegetarian</h2>
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed purus consectetur, interdum felis in, auctor ligula.</p>
 					<div class="effect-btn">
-						<a id="vegetarian" class="btn" href="#" @click="displayFoodType">Read More</a>
+						<a id="vegetarian" class="btn" href="#" @click="displayFoodType(vegetarian)">
+							Read More
+						</a>
 					</div>
 				</div>
 			</div>
@@ -54,7 +62,7 @@
 					<h2>Balanced</h2>
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed purus consectetur, interdum felis in, auctor ligula.</p>
 					<div class="effect-btn">
-						<a id="balanced" class="btn" href="#" @click="displayFoodType">Read More</a>
+						<a class="btn" @click="displayFoodType(balanced)">Read More</a>
 					</div>
 				</div>
 			</div>
@@ -113,13 +121,8 @@
 </template>
 
 <script>
-	
-	
-	
-	
 	export default {
 		name: "HomePage",
-		props:['displayFoodType','foodRecipes'],
 		components: {
 
 
@@ -132,12 +135,22 @@
 				DishTypes: "",
 				DietMeals: "",
 				clickType: "",
+				foodRecipes: [],
+				balanced:"balanced",
+				vegetarian:"vegetarian",
+				vegan:"vegan",
+				'low-sugar':"low-sugar"
 
 
 
 			}
 		},
-		
+		methods: {
+			displayFoodType(type) {
+				this.$router.push(`search/${type}`)
+			}
+
+		},
 		mounted() {
 
 		}
