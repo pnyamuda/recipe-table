@@ -4,7 +4,7 @@
 
 
 
-		<label class="typo__label">Diet</label>
+		<label class="typo__label">Meal</label>
 		<multiselect v-model="value" track-by="name" label="name" placeholder="Select one" :options="options" :searchable="false" :allow-empty="false">
 			<p slot="singleLabel" slot-scope="{ option }"><strong>{{ option.name }}</strong></p>
 		</multiselect>
@@ -33,40 +33,35 @@
 		data() {
 			return {
 				value:{
-						name: 'balanced',
-						language: 'bal'
+						name: 'Dinner',
+						language: 'din'
 					},
 				options: [{
-						name: 'balanced',
-						language: 'bal'
+						name: 'Breakfast',
+						language: 'break'
 					},
 					{
-						name: 'high-fiber',
-						language: 'fib'
+						name: 'Lunch',
+						language: 'lu'
 					},
 					{
-						name: 'high-protein',
-						language: 'high'
+						name: 'Dinner',
+						language: 'din'
 					},
 					{
-						name: 'flow-carb',
-						language: 'flow'
+						name: 'Snack',
+						language: 'nack'
 					},
 					{
-						name: 'low-fat',
-						language: 'fat'
+						name: 'Teatime',
+						language: 'tea'
 					},
-					{
-						name: 'low-sodium',
-						language: 'na'
-					},
-
 				],
 			}
 		},
 		watch: {
 			value() {
-				this.$emit("dietChanged", this.value)
+				this.$emit("mealChanged", this.value)
 			},
 		}
 	}

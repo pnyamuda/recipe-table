@@ -32,7 +32,12 @@
 		},
 		data() {
 			return {
-				value: [],
+				value: [
+					{
+						name: 'vegetarian',
+						code: 'veget'
+					},
+				],
 				options: [{
 						name: 'alcohol-free',
 						code: 'alcohol'
@@ -54,7 +59,7 @@
 						code: 'red'
 					},
 					{
-						name: 'No-oil-added	',
+						name: 'No-oil-added',
 						code: 'oil'
 					},
 					{

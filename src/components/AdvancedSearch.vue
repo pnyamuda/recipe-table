@@ -2,14 +2,15 @@
 	<div id="">
 		<div>
 
-
-			<DropDown v-on:valueChanged="addHealthLabels($event)"></DropDown>
+			<HealthSearch v-on:valueChanged="addHealthLabels($event)"></HealthSearch>
 			<DietSearch v-on:dietChanged="addDietLabels($event)"></DietSearch>
-
+			<MealSearch v-on:mealChanged="addMealLabels($event)"></MealSearch>
+			<DishSearch v-on:dishChanged="addDishLabels($event)"></DishSearch>
+			<CuisineSearch v-on:cuisineChanged="addCuisineLabels($event)"></CuisineSearch>
 			<div>
 				<mdb-form-inline class="mr-auto mb-4">
 					<mdb-input class="mr-sm-2" type="text" placeholder="Search" aria-label="Search" />
-					<mdb-btn outline="success" rounded size="sm" type="submit" class="mr-auto">Search</mdb-btn>
+					<mdb-btn type="button" @click="searchForRecipe" outline="success" rounded size="sm" class="mr-auto">Search</mdb-btn>
 				</mdb-form-inline>
 
 
@@ -18,7 +19,10 @@
 
 		</div>
 
-		<p></p>
+		<p>{{dishLabels}}</p>
+		<p>{{healthLabels}}</p>
+		<p>{{mealLabels}}</p>
+		<p>{{dietLabels}}</p>
 		<div class="recipe-grid">
 
 			<div v-for="foodRecipe in foodRecipes" class="effect-1" :key="foodRecipe.id">
@@ -29,7 +33,7 @@
 					<h2>{{foodRecipe.recipe.label}}</h2>
 					<p>By {{foodRecipe.recipe.source}}</p>
 					<div class="effect-btn">
-						<a class="btn" href="#">Read More</a>
+						<a v-on:click="getTheRecipe" class="btn">Read More</a>
 					</div>
 				</div>
 			</div>
@@ -47,8 +51,12 @@
 
 <script>
 	import axios from "axios";
-	import DropDown from "./DropDown.vue";
+	import HealthSearch from "./HealthSearch.vue";
 	import DietSearch from "./DietSearch.vue";
+	import MealSearch from "./MealSearch.vue";
+	import DishSearch from "./DishSearch.vue";
+	import CuisineSearch from "./CuisineSearch.vue";
+
 	import {
 		mdbInput,
 		mdbBtn,
@@ -59,8 +67,11 @@
 	export default {
 		name: "AdvancedSearch",
 		components: {
-			DropDown,
+			HealthSearch,
 			DietSearch,
+			DishSearch,
+			MealSearch,
+			CuisineSearch,
 			mdbInput,
 			mdbBtn,
 			mdbFormInline
@@ -69,8 +80,26 @@
 		data() {
 			return {
 				foodRecipes: [],
-				healthLabels: "",
-				dietLabels:"",
+				healthLabels: [{
+					name: 'vegetarian',
+					code: 'veget'
+				}, ],
+				dietLabels: {
+					name: 'balanced',
+					language: 'bal'
+				},
+				dishLabels: [{
+					name: 'Main course',
+					code: 'main'
+				}, ],
+				mealLabels: {
+					name: 'Dinner',
+					language: 'din'
+				},
+				cuisineLabels: [{
+					name: 'American',
+					code: 'americ'
+				}],
 
 			}
 		},
@@ -80,7 +109,55 @@
 			},
 			addDietLabels(diets) {
 				this.dietLabels = diets;
-			}
+			},
+			addMealLabels(meals) {
+				this.mealLabels = meals;
+			},
+			addDishLabels(dishes) {
+				this.dishabels = dishes;
+			},
+			addCuisineLabels(cuisines) {
+				this.cuisineLabels = cuisines;
+			},
+			fetchRecipeRequest(par) {
+				axios
+					.get(`https://api.edamam.com/search?q=&app_id=efb7b8d6&app_key=0765b41943f91184d10511211580fb3c	${par}`)
+					.then(result => {
+						console.log(result.data.hits)
+					this.foodRecipes = result.data.hits;
+					})
+					.catch(er => {
+						console.log(er)
+					})
+
+			},
+			searchForRecipe() {
+
+				let healthParameter = this.healthLabels.map(val => '&health=' + val.name).join('');
+
+				let dietParameter = '&diet=' + this.dietLabels.name;
+
+				//let dishParameter = this.dishLabels.map(val => '&dishType=' + val.name).join('');
+
+
+				//let mealParameter = '&mealType=' + this.mealLabels.name;
+
+
+				//let cuisineParameter = this.cuisineLabels.map(val => '&cuisineType=' + val.name).join('');
+
+				let wholeParameters = healthParameter + dietParameter;
+				
+				console.log(wholeParameters);
+
+				this.fetchRecipeRequest(wholeParameters)
+
+			},
+			getTheRecipe()
+
+
+		},
+		computed: {
+
 		},
 		created() {
 			axios
