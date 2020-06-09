@@ -6,6 +6,8 @@ import VueAgile from 'vue-agile';
 import VueRouter from 'vue-router';
 import theRouter from './routes';
 
+export const eventBus=new Vue();
+
 Vue.use(VueRouter)
  
 Vue.use(VueAgile)

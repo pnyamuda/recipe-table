@@ -18,12 +18,8 @@ export default [
 		component: AdvancedSearch,
 		
 	},
-	{
-		path: '/search',
-		component: AdvancedSearch,
-		
-	},
-	{
+	
+    {
 		path: '/recipe',
 		component: TheRecipe,
 		
