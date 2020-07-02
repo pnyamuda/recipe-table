@@ -5,7 +5,7 @@
             <HealthSearch v-on:valueChanged="addHealthLabels($event)"></HealthSearch>
             <DishSearch v-on:dishChanged="addDishLabels($event)"></DishSearch>
             <CuisineSearch v-on:cuisineChanged="addCuisineLabels($event)"></CuisineSearch>
-            <div>
+            <div id="searchInput">
                 <mdb-form-inline class="mr-auto mb-4">
                     <mdb-input class="mr-sm-2" type="text" placeholder="Search" aria-label="Search" v-model="searchFood" />
                     <mdb-btn type="button" @click="searchForRecipe" outline="success" rounded size="sm" class="mr-auto">Search</mdb-btn>
@@ -321,10 +321,15 @@
     #advancedSearch {
         display: grid;
         grid-template-columns: 30% 30% 30%;
-        grid-template-rows: auto auto;
-
+        grid-template-rows: 5rem 5rem;
         position: relative;
         top: 2rem;
+        width: 95%;
+        margin: auto;
+        border: 1px solid red;
+    }
+    #searchInput {
+        grid-area: 2/3/3/4
     }
 
     .recipe-grid {

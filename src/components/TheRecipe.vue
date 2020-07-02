@@ -60,17 +60,17 @@
             <div class="parent">
                 <div class="div1"><img v-bind:src="src"></div>
                 <div class="div2">
-                    <div>
-                        <p>{{name}}</p>
-                        <p>By {{source}}</p>
+                    <div class="name-source">
+                        <p id="recipe-name">{{name}}</p>
+                        <p id="recipe-source">By {{source}}</p>
 
                     </div>
                     <div id="time-box">
                         <p>Yield: {{servings}} servings</p>
-                        <p>preparation Minutes: {{time}} minutes</p>
+                        <p>Ready in: {{time}} minutes</p>
                         <p>Calories: {{calories}}</p>
-                        <div>
-                            <p v-for="diet in diets" :key="diet.id">Diets: {{diet}}</p>
+                        <div id="recipe-diets">
+                            <p v-for="diet in diets" :key="diet.id">{{diet}}</p>
                         </div>
 
                     </div>
@@ -82,8 +82,21 @@
                 <div class="div3">
                     <p v-for="ingredient in ingredients" :key="ingredient.id">{{ingredient.original}}</p>
                 </div>
+                
+                
+                  <div class="div4">
+                    <p>{{instructions}}</p>
+                </div>
 
-                <div class="div4">
+                
+                
+              
+                <div class="div6">
+                    <BalancedChart></BalancedChart>
+                </div>
+                
+                
+                  <div class="div5">
                     <mdb-scrollbar height="200px">
                         <mdb-tbl bordered>
                             <mdb-tbl-head color="light">
@@ -106,13 +119,6 @@
                     </mdb-scrollbar>
                 </div>
 
-                <div>
-                    <p>{{instructions}}</p>
-                </div>
-
-                <div class="div5">
-                    <BalancedChart></BalancedChart>
-                </div>
                
             </div>
 
@@ -259,6 +265,14 @@
 
 <style scoped>
     @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap");
+    
+    #recipe-name {
+        font-size: 2rem;
+    }
+    .recipe-name {
+        display: flex;
+        flex-direction: column;
+    }
 
     #theRecipe {
         width: 90%;
@@ -273,9 +287,17 @@
     .recipe-info {}
 
     #time-box {
+        display:grid;
+        grid-template-columns: 30% 40% 30%;
+        grid-template-rows: 2rem 2rem;
+
+    }
+    #recipe-diets {
+        grid-area: 2/1/3/3;
         display: flex;
-        flex-direction: column;
-        border: 1px solid;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        flex-direction: row;
     }
 
     .image {}
@@ -323,19 +345,22 @@
     }
 
     .div3 {
-        grid-area: 2 / 1 / 3 / 3;
+        grid-area: 2 / 1 / 3 / 2;
+        border: 1px solid red;
     }
 
     .div4 {
-        grid-area: 2 / 3 / 3 / 5;
+        grid-area: 2 / 2 / 3 / 5;
+        border: 1px solid red;
     }
 
     .div5 {
-        grid-area: 3 / 2 / 4 / 4;
+        grid-area: 3 / 1 / 4 / 2;
+         border: 1px solid red;
     }
 
     .div6 {
-        grid-area: 4 / 2 / 5 / 4;
+        grid-area: 3 / 2 / 4 / 5;
     }
 
     .div7 {
