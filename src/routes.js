@@ -20,7 +20,7 @@ export default [
 	},
 	
     {
-		path: '/recipe',
+		path: '/recipe/:information',
 		component: TheRecipe,
 		
 	}

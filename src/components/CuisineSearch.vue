@@ -5,7 +5,7 @@
 
 
 		<div>
-			<label class="typo__label">Health Labels</label>
+			<label class="typo__label">Cuisine Labels</label>
 			<multiselect :close-on-select="false" v-model="value5" tag-placeholder="Add this as new tag" placeholder="Search or add a tag" label="name" track-by="code" :options="options" :multiple="true" :taggable="true" @tag="addTag"></multiselect>
 		</div>
 

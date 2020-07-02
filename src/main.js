@@ -6,15 +6,6 @@ import VueAgile from 'vue-agile';
 import VueRouter from 'vue-router';
 import theRouter from './routes';
 
-import VueFusionCharts from 'vue-fusioncharts';
-import FusionCharts from 'fusioncharts';
-import Charts from 'fusioncharts/fusioncharts.charts';
-
-//import the theme
-import FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
-
-// register VueFusionCharts component
-Vue.use(VueFusionCharts, FusionCharts, Charts, FusionTheme)
 
 
 export const eventBus = new Vue();
@@ -25,7 +16,8 @@ Vue.use(VueAgile)
 
 
 const router = new VueRouter({
-    routes: theRouter
+    routes: theRouter,
+    mode:"history"
 })
 
 Vue.config.productionTip = false;
@@ -34,3 +26,5 @@ new Vue({
     render: h => h(App),
     router,
 }).$mount("#app");
+
+

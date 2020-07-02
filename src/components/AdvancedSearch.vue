@@ -1,15 +1,13 @@
 <template>
-    <div id="">
-        <div>
+    <div>
+        <div id="advancedSearch">
 
             <HealthSearch v-on:valueChanged="addHealthLabels($event)"></HealthSearch>
-            <DietSearch v-on:dietChanged="addDietLabels($event)"></DietSearch>
-            <MealSearch v-on:mealChanged="addMealLabels($event)"></MealSearch>
             <DishSearch v-on:dishChanged="addDishLabels($event)"></DishSearch>
             <CuisineSearch v-on:cuisineChanged="addCuisineLabels($event)"></CuisineSearch>
             <div>
                 <mdb-form-inline class="mr-auto mb-4">
-                    <mdb-input class="mr-sm-2" type="text" placeholder="Search" aria-label="Search" />
+                    <mdb-input class="mr-sm-2" type="text" placeholder="Search" aria-label="Search" v-model="searchFood" />
                     <mdb-btn type="button" @click="searchForRecipe" outline="success" rounded size="sm" class="mr-auto">Search</mdb-btn>
                 </mdb-form-inline>
 
@@ -21,22 +19,40 @@
 
         <p>{{dishLabels}}</p>
         <p>{{healthLabels}}</p>
-        <p>{{mealLabels}}</p>
-        <p>{{dietLabels}}</p>
+        <p>{{searchFood}}</p>
         
-        <TheRecipe></TheRecipe>
         
+        <div class="myImg">
+
+                <div class="myLove" v-for="foodRecipe in foodRecipes" :key="foodRecipe.id">
+
+                    <div class="contenedor" v-bind:style="'background:url(https://spoonacular.com/recipeImages/'+foodRecipe.image+')'">
+                        <h1>{{foodRecipe.title}}</h1>
+                        <p></p>
+                    </div>
+                    <div class="nombre">{{foodRecipe.title}}</div>
+
+                </div>
+
+
+
+            </div>
+
+
         <div class="recipe-grid">
 
-            <div v-for="(foodRecipe, index) in foodRecipes" class="effect-1" :key="foodRecipe.id">
+            
+
+
+            <div v-for="foodRecipe in foodRecipes" class="effect-1" :key="foodRecipe.id">
                 <div class="effect-img">
-                    <img v-bind:src="foodRecipe.recipe.image">
+                    <img v-bind:src="'https://spoonacular.com/recipeImages/'+foodRecipe.image" v-show="categorySearchImage">
+                    <img v-bind:src="foodRecipe.image" v-show="advancedSearchImage">
                 </div>
                 <div class="effect-text">
-                    <h2>{{foodRecipe.recipe.label}}</h2>
-                    <p>By {{foodRecipe.recipe.source}}</p>
+                    <h2>{{foodRecipe.title}}</h2>
                     <div class="effect-btn" v-on:click="myRecipe">
-                        <p>{{index}}</p><a class="btn" v-bind:id="index">Read More</a>
+                        <a class="btn" v-bind:id="foodRecipe.id">Read More</a>
                     </div>
                 </div>
             </div>
@@ -55,12 +71,9 @@
 <script>
     import axios from "axios";
     import HealthSearch from "./HealthSearch.vue";
-    import DietSearch from "./DietSearch.vue";
-    import MealSearch from "./MealSearch.vue";
+
     import DishSearch from "./DishSearch.vue";
     import CuisineSearch from "./CuisineSearch.vue";
-    import {eventBus} from "../main";
-    import TheRecipe from "./TheRecipe.vue";
 
     import {
         mdbInput,
@@ -73,35 +86,28 @@
         name: "AdvancedSearch",
         components: {
             HealthSearch,
-            DietSearch,
             DishSearch,
-            MealSearch,
             CuisineSearch,
             mdbInput,
             mdbBtn,
             mdbFormInline,
-            TheRecipe,
 
         },
         data() {
             return {
+                searchFood: "",
+                categorySearchImage: true,
+                advancedSearchImage: false,
                 foodRecipes: [],
                 healthLabels: [{
                     name: 'vegetarian',
                     code: 'veget'
                 }, ],
-                dietLabels: {
-                    name: 'balanced',
-                    language: 'bal'
-                },
                 dishLabels: [{
-                    name: 'Main course',
+                    name: 'soup',
                     code: 'main'
                 }, ],
-                mealLabels: {
-                    name: 'Dinner',
-                    language: 'din'
-                },
+
                 cuisineLabels: [{
                     name: 'American',
                     code: 'americ'
@@ -113,24 +119,19 @@
             addHealthLabels(labels) {
                 this.healthLabels = labels;
             },
-            addDietLabels(diets) {
-                this.dietLabels = diets;
-            },
-            addMealLabels(meals) {
-                this.mealLabels = meals;
-            },
             addDishLabels(dishes) {
-                this.dishabels = dishes;
+                this.dishLabels = dishes;
             },
             addCuisineLabels(cuisines) {
                 this.cuisineLabels = cuisines;
             },
             fetchRecipeRequest(par) {
                 axios
-                    .get(`https://api.edamam.com/search?q=&app_id=efb7b8d6&app_key=0765b41943f91184d10511211580fb3c	${par}`)
-                    .then(result => {
-                        console.log(result.data.hits)
-                        this.foodRecipes = result.data.hits;
+                    .get(`https://api.spoonacular.com/recipes/complexSearch?query=${this.searchFood}&apiKey=5900942a331f4623910b3ff1631c6b1b${par}`)
+                    .then(response => {
+                        this.foodRecipes = response.data.results;
+                        console.log(response.data.results);
+
                     })
                     .catch(er => {
                         console.log(er)
@@ -139,32 +140,35 @@
             },
             searchForRecipe() {
 
-                let healthParameter = this.healthLabels.map(val => '&health=' + val.name).join('');
+                let healthParameter = this.healthLabels.map(val => '&diet=' + val.name).join('');
 
-                let dietParameter = '&diet=' + this.dietLabels.name;
+                //let dietParameter = '&diet=' + this.dietLabels.name;
 
-                //let dishParameter = this.dishLabels.map(val => '&dishType=' + val.name).join('');
+                let dishParameter = this.dishLabels.map(val => '&type=' + val.name).join('');
 
 
                 //let mealParameter = '&mealType=' + this.mealLabels.name;
 
 
-                //let cuisineParameter = this.cuisineLabels.map(val => '&cuisineType=' + val.name).join('');
+                let cuisineParameter = this.cuisineLabels.map(val => '&cuisine=' + val.name).join('');
 
-                let wholeParameters = healthParameter + dietParameter;
+                let wholeParameters = healthParameter + dishParameter + cuisineParameter;
 
-                console.log(wholeParameters);
+                console.log();
 
-                this.fetchRecipeRequest(wholeParameters)
+
+
+                this.fetchRecipeRequest(wholeParameters);
+                this.categorySearchImage = false;
+                this.advancedSearchImage = true
             },
             myRecipe() {
-    
-                let indx=event.target.id;
-                 console.log(indx);
-                let chosenRecipe=this.foodRecipes[indx];
-                console.log(chosenRecipe);
 
-                eventBus.$emit("showRecipe",chosenRecipe);
+                let foodId = event.target.id;
+                console.log(foodId);
+
+                this.$router.push(`/recipe/${foodId}`)
+
             }
 
 
@@ -172,12 +176,13 @@
 
         created() {
             axios
-                .get(`https://api.edamam.com/search?q=&app_id=efb7b8d6&app_key=0765b41943f91184d10511211580fb3c&health=${this.$route.params.category}`)
+                .get(`https://api.spoonacular.com/recipes/search?diet=${this.$route.params.category}&apiKey=5900942a331f4623910b3ff1631c6b1b`)
                 .then(response => {
-                    console.log(response.data.hits);
-                    this.foodRecipes = response.data.hits;
-                    console.log(this.foodRecipes);
+                    console.log(response.data.results);
+                    this.foodRecipes = response.data.results;
 
+                    this.categorySearchImage = true;
+                    this.advancedSearchImage = false
 
                 })
                 .catch(err => {
@@ -191,6 +196,136 @@
 
 <style scoped>
     @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap");
+
+
+
+    .contenedor {
+        width: 20rem;
+        height: 20rem;
+        margin: 2em auto;
+        display: block;
+        position: relative;
+        background-position: center !important;
+        background-size: 100% 100% !important;
+        padding: 1em;
+        overflow: hidden;
+        -webkit-transition: all 0.5s;
+        transition: all 0.5s;
+        color:lightgreen;
+    }
+
+    .contenedor:before {
+        position: absolute;
+        content: "";
+        top: 1em;
+        left: 2em;
+        width: 0;
+        height: 2px;
+        background-color:lightgreen;
+        -webkit-transition: all 0.5s;
+        transition: all 0.5s;
+    }
+
+    .contenedor:after {
+        position: absolute;
+        content: "";
+        bottom: 1em;
+        right: 2em;
+        width: 0;
+        height: 2px;
+        background-color: lightgreen;
+        -webkit-transition: all 0.5s;
+        transition: all 0.5s;
+    }
+
+    .contenedor h1 {
+        position: absolute;
+        left: 1em;
+        top: 0.5em;
+        -webkit-transform: translatex(-130%);
+        transform: translatex(-130%);
+        -webkit-transition: all 0.5s;
+        transition: all 0.5s;
+    }
+
+    .contenedor p {
+        position: absolute;
+        left: 2em;
+        top: 4em;
+        -webkit-transform: translatex(350%);
+        transform: translatex(350%);
+        -webkit-transition: all 0.5s;
+        transition: all 0.5s;
+    }
+
+    .contenedor:hover {
+        background-size: 120% 120%;
+        cursor: pointer;
+    }
+
+    .contenedor:hover h1,
+    .contenedor:hover p {
+        -webkit-transform: translatex(0%);
+        transform: translatex(0%);
+    }
+
+    .contenedor:hover:before,
+    .contenedor:hover:after {
+        width: 80%;
+    }
+
+    .nombre {
+        text-align: center;
+        width: 100%;
+        font-family: sans-serif;
+        font-size: 1rem;
+        margin-top: -1rem;
+    }
+
+
+    .myImg {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        border: 1px solid red;
+        justify-content: space-evenly;
+    }
+
+    .myLove {
+        padding: 0.1rem 1rem 0.5rem 1rem;
+        cursor: pointer;
+
+    }
+
+    .myLove:hover {
+        box-shadow: 0 0 11px rgba(33, 33, 33, .4);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    #advancedSearch {
+        display: grid;
+        grid-template-columns: 30% 30% 30%;
+        grid-template-rows: auto auto;
+
+        position: relative;
+        top: 2rem;
+    }
 
     .recipe-grid {
         width: 100%;

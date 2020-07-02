@@ -34,7 +34,7 @@
 			return {
 				value: [
 					{
-						name: 'vegetarian',
+						name: 'Vegetarian',
 						code: 'veget'
 					},
 				],
@@ -43,7 +43,7 @@
 						code: 'alcohol'
 					},
 					{
-						name: 'vegan',
+						name: 'Vegan',
 						code: 'vega'
 					},
 					{
@@ -87,7 +87,7 @@
 						code: 'pork'
 					},
 					{
-						name: 'pecatarian',
+						name: 'Pescetarian',
 						code: 'pec'
 					},
 					{

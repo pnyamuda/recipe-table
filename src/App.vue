@@ -33,12 +33,13 @@
 
 	#nav {
 		position: relative;
-		top: 1rem;
+        margin-bottom:0.1rem;
 	}
 
 	#slider {
 		position: relative;
 		top: 1.5rem;
+        
 	}
 
 </style>

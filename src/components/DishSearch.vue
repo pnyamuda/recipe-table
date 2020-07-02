@@ -33,7 +33,7 @@
 		data() {
 			return {
 				value4: [{
-						name: 'Main course',
+						name: 'main course',
 						code: 'main'
 					},],
 				options: [{
@@ -41,7 +41,7 @@
 						code: 'bisc'
 					},
 					{
-						name: 'Bread',
+						name: 'bread',
 						code: 'bre'
 					},
 					{
@@ -61,10 +61,6 @@
 						code: 'desse'
 					},
 					{
-						name: 'Main course',
-						code: 'main'
-					},
-					{
 						name: 'Pancake',
 						code: 'pan'
 					},
@@ -77,7 +73,7 @@
 						code: 'preserv'
 					},
 					{
-						name: 'Salad',
+						name: 'salad',
 						code: 'sald'
 					},
 					{
@@ -89,7 +85,7 @@
 						code: 'dishs'
 					},
 					{
-						name: 'Soup',
+						name: 'soup',
 						code: 'soupss'
 					},
 					{
