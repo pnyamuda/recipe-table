@@ -20,34 +20,34 @@
         <p>{{dishLabels}}</p>
         <p>{{healthLabels}}</p>
         <p>{{searchFood}}</p>
-        
-        
+
+
         <div class="myImg">
 
-                <div class="myLove" v-for="foodRecipe in foodRecipes" :key="foodRecipe.id">
-
-                    <div class="contenedor" v-bind:style="'background:url(https://spoonacular.com/recipeImages/'+foodRecipe.image+')'">
-                        <h1>{{foodRecipe.title}}</h1>
-                        <p></p>
-                    </div>
-                    <div class="nombre">{{foodRecipe.title}}</div>
-
+            <div class="myLove" v-for="foodRecipe in foodRecipes" :key="foodRecipe.id" v-on:click="myRecipe">
+                
+                 <div v-bind:id="foodRecipe.id" class="contenedor" v-bind:style="'background:url('+foodRecipe.image+')'">
+                    <h1 class="image-text">{{foodRecipe.title}}</h1>
+                    <p></p>
                 </div>
-
-
+                
+                <div v-bind:id="foodRecipe.id" class="nombre">{{foodRecipe.title}}</div>
 
             </div>
 
 
+
+        </div>
+
+
         <div class="recipe-grid">
 
-            
+
 
 
             <div v-for="foodRecipe in foodRecipes" class="effect-1" :key="foodRecipe.id">
                 <div class="effect-img">
                     <img v-bind:src="'https://spoonacular.com/recipeImages/'+foodRecipe.image" v-show="categorySearchImage">
-                    <img v-bind:src="foodRecipe.image" v-show="advancedSearchImage">
                 </div>
                 <div class="effect-text">
                     <h2>{{foodRecipe.title}}</h2>
@@ -96,21 +96,21 @@
         data() {
             return {
                 searchFood: "",
-                categorySearchImage: true,
-                advancedSearchImage: false,
+                categorySearchImage: false,
+                advancedSearchImage: true,
                 foodRecipes: [],
                 healthLabels: [{
-                    name: 'vegetarian',
-                    code: 'veget'
+                    name: '',
+                    code: ''
                 }, ],
                 dishLabels: [{
-                    name: 'soup',
-                    code: 'main'
+                    name: '',
+                    code: ''
                 }, ],
 
                 cuisineLabels: [{
-                    name: 'American',
-                    code: 'americ'
+                    name: '',
+                    code: ''
                 }],
 
             }
@@ -156,13 +156,13 @@
 
                 console.log();
 
+                this.$router.push(`/search/query=${this.searchFood}${wholeParameters}`)
+
 
 
                 this.fetchRecipeRequest(wholeParameters);
-                this.categorySearchImage = false;
-                this.advancedSearchImage = true
             },
-            myRecipe() {
+            myRecipe(event) {
 
                 let foodId = event.target.id;
                 console.log(foodId);
@@ -176,13 +176,11 @@
 
         created() {
             axios
-                .get(`https://api.spoonacular.com/recipes/search?diet=${this.$route.params.category}&apiKey=5900942a331f4623910b3ff1631c6b1b`)
+                .get(`https://api.spoonacular.com/recipes/complexSearch?${this.$route.params.category}&apiKey=5900942a331f4623910b3ff1631c6b1b`)
                 .then(response => {
                     console.log(response.data.results);
                     this.foodRecipes = response.data.results;
 
-                    this.categorySearchImage = true;
-                    this.advancedSearchImage = false
 
                 })
                 .catch(err => {
@@ -200,8 +198,8 @@
 
 
     .contenedor {
-        width: 20rem;
-        height: 20rem;
+        width: 18.75rem;
+        height:18.75rem;
         margin: 2em auto;
         display: block;
         position: relative;
@@ -211,7 +209,7 @@
         overflow: hidden;
         -webkit-transition: all 0.5s;
         transition: all 0.5s;
-        color:lightgreen;
+        color: lightgreen;
     }
 
     .contenedor:before {
@@ -221,7 +219,7 @@
         left: 2em;
         width: 0;
         height: 2px;
-        background-color:lightgreen;
+        background-color: lightgreen;
         -webkit-transition: all 0.5s;
         transition: all 0.5s;
     }
@@ -280,6 +278,7 @@
         font-family: sans-serif;
         font-size: 1rem;
         margin-top: -1rem;
+        width: 20rem;
     }
 
 
@@ -299,6 +298,11 @@
 
     .myLove:hover {
         box-shadow: 0 0 11px rgba(33, 33, 33, .4);
+    }
+
+    .image-text {
+        font-size: 1.5rem;
+        margin-top: 1rem;
     }
 
 
@@ -328,6 +332,7 @@
         margin: auto;
         border: 1px solid red;
     }
+
     #searchInput {
         grid-area: 2/3/3/4
     }

@@ -11,7 +11,7 @@
                     <h1>Prueba</h1>
                     <p>Texto de prueba</p>
                 </div>
-                <div class="nombre">Simple Hover Effect</div>
+                <div class="nombre">Simple Hover Effect Simple Hover Effect Simple Hover Effect Simple Hover Effect Simple Hover Effect</div>
 
             </div>
 
@@ -31,67 +31,83 @@
                     <img src="../assets/vegan.jpg" alt="Image">
                 </div>
                 <div class="effect-text">
-                    <h2>No Sagar</h2>
+                    <h2>Dessert</h2>
                     <p> interdum felis in, auctor ligula.</p>
                     <div class="effect-btn">
-                        <a id="low-sugar" class="btn" href="#" @click="displayFoodType(low-sugar)">
+                       <router-link to="/search/type=dessert"><a class="btn" href="#">
                             Read More
-                        </a>
+                        </a></router-link>
                     </div>
                 </div>
             </div>
-
-
-
-
+            
+            
+            
             <div class="effect-1">
                 <div class="effect-img">
                     <img src="../assets/vegan.jpg" alt="Image">
                 </div>
                 <div class="effect-text">
-                    <h2>Vegan</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed purus consectetur, interdum felis in, auctor ligula.</p>
+                    <h2>Main Course</h2>
+                    <p> interdum felis in, auctor ligula.</p>
                     <div class="effect-btn">
-                        <a id="vegan" class="btn" href="#" @click="displayFoodType(vegan)">
+                       <router-link to="/search/type=main course"><a class="btn" href="#">
                             Read More
-                        </a>
+                        </a></router-link>
                     </div>
                 </div>
             </div>
-
-
+            
+            
+            
             <div class="effect-1">
                 <div class="effect-img">
                     <img src="../assets/vegan.jpg" alt="Image">
                 </div>
                 <div class="effect-text">
-                    <h2>Vegetarian</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed purus consectetur, interdum felis in, auctor ligula.</p>
+                    <h2>Breakfast</h2>
+                    <p> interdum felis in, auctor ligula.</p>
                     <div class="effect-btn">
-                        <a id="vegetarian" class="btn" href="#" @click="displayFoodType(Vegetarian)">
+                       <router-link to="/search/type=breakfast"><a class="btn" href="#">
                             Read More
-                        </a>
+                        </a></router-link>
                     </div>
                 </div>
             </div>
-
-            <div class="effect-1">
+            
+            
+             <div class="effect-1">
                 <div class="effect-img">
                     <img src="../assets/vegan.jpg" alt="Image">
                 </div>
                 <div class="effect-text">
-                    <h2>Balanced</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed purus consectetur, interdum felis in, auctor ligula.</p>
+                    <h2>Appetizer</h2>
+                    <p> interdum felis in, auctor ligula.</p>
                     <div class="effect-btn">
-                        <a class="btn" @click="displayFoodType(balanced)">Read More</a>
+                       <router-link to="/search/type=appetizer"><a class="btn" href="#">
+                            Read More
+                        </a></router-link>
                     </div>
                 </div>
             </div>
-
-
-
-
-
+            
+            
+            
+             <div class="effect-1">
+                <div class="effect-img">
+                    <img src="../assets/vegan.jpg" alt="Image">
+                </div>
+                <div class="effect-text">
+                    <h2>Salad</h2>
+                    <p> interdum felis in, auctor ligula.</p>
+                    <div class="effect-btn">
+                       <router-link to="/search/type=salad"><a class="btn" href="#">
+                            Read More
+                        </a></router-link>
+                    </div>
+                </div>
+            </div>
+            
 
         </div>
 
@@ -170,9 +186,10 @@
             }
         },
         methods: {
+            /*
             displayFoodType(type) {
                 this.$router.push(`search/${type}`)
-            }
+            } */
 
         },
         mounted() {
@@ -265,10 +282,11 @@
 
     .nombre {
         text-align: center;
-        width: 100%;
+        width:400px;
         font-family: sans-serif;
-        font-size: 2rem;
+        font-size: 1rem;
         margin-top: -1rem;
+        
     }
 
 

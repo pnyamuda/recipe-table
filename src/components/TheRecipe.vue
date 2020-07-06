@@ -181,7 +181,7 @@
             axios
                 .get(`https://api.spoonacular.com/recipes/${this.$route.params.information}/information?apiKey=5900942a331f4623910b3ff1631c6b1b`)
                 .then(info => {
-                    console.log(info)
+                    console.log(info.data.image)
 
 
 

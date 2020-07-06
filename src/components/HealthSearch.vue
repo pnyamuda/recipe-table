@@ -1,18 +1,18 @@
 <template>
 
-	<div class="my-selector">
+    <div class="my-selector">
 
 
 
-		<div>
-			<label class="typo__label">Health Labels</label>
-			<multiselect :close-on-select="false" v-model="value" tag-placeholder="Add this as new tag" placeholder="Search or add a tag" label="name" track-by="code" :options="options" :multiple="true" :taggable="true" @tag="addTag"></multiselect>
-		</div>
+        <div>
+            <label class="typo__label">Diet</label>
+            <multiselect :close-on-select="false" v-model="value" tag-placeholder="Add this as new tag" placeholder="Search or add a tag" label="name" track-by="code" :options="options" :multiple="true" :taggable="true" @tag="addTag"></multiselect>
+        </div>
 
 
 
 
-	</div>
+    </div>
 
 
 
@@ -23,96 +23,80 @@
 
 
 <script>
-	import Multiselect from 'vue-multiselect';
+    import Multiselect from 'vue-multiselect';
 
-	export default {
-		props: [],
-		components: {
-			Multiselect
-		},
-		data() {
-			return {
-				value: [
-					{
-						name: 'Vegetarian',
-						code: 'veget'
-					},
-				],
-				options: [{
-						name: 'alcohol-free',
-						code: 'alcohol'
-					},
-					{
-						name: 'Vegan',
-						code: 'vega'
-					},
-					{
-						name: 'sugar-conscious',
-						code: 'sugar'
-					},
-					{
-						name: 'fish-free',
-						code: 'fish'
-					},
-					{
-						name: 'red-meat-free',
-						code: 'red'
-					},
-					{
-						name: 'No-oil-added',
-						code: 'oil'
-					},
-					{
-						name: 'peanut-free',
-						code: 'peanut'
-					},
-					{
-						name: 'dairy-free',
-						code: 'dairy'
-					},
-					{
-						name: 'vegetarian',
-						code: 'veget'
-					},
-					{
-						name: 'wheat-free',
-						code: 'wheat'
-					},
-					{
-						name: 'soy-free',
-						code: 'soy'
-					},
-					{
-						name: 'pork-free',
-						code: 'pork'
-					},
-					{
-						name: 'Pescetarian',
-						code: 'pec'
-					},
-					{
-						name: 'kidney-friendly',
-						code: 'kid'
-					}
-				],
-			}
-		},
-		methods: {
-			addTag(newTag) {
-				const tag = {
-					name: newTag,
-					code: newTag.substring(0, 2) + Math.floor((Math.random() * 10000000))
-				}
-				this.options.push(tag);
-				this.value.push(tag);
-			}
-		},
-		watch: {
-			value() {
-			this.$emit("valueChanged",this.value)
-			},
-		}
-	}
+    export default {
+        props: [],
+        components: {
+            Multiselect
+        },
+        data() {
+            return {
+                value: [{
+                    name: 'Vegetarian',
+                    code: 'veget'
+                }, ],
+                options: [{
+                        name: 'Gluten Free',
+                        code: 'alcohol'
+                    },
+                    {
+                        name: 'Vegetarian',
+                        code: 'veget'
+                    },
+                    {
+                        name: 'Vegan',
+                        code: 'vega'
+                    },
+                    {
+                        name: 'Ketogenic',
+                        code: 'sugar'
+                    },
+                    {
+                        name: 'Lacto-Vegetarian',
+                        code: 'fish'
+                    },
+                    {
+                        name: 'Ovo-Vegetarian',
+                        code: 'red'
+                    },
+                    {
+                        name: 'Pescetarian',
+                        code: 'oil'
+                    },
+                    {
+                        name: 'Paleo',
+                        code: 'peanut'
+                    },
+                    {
+                        name: 'Primal',
+                        code: 'dairy'
+                    },
+                    {
+                        name: 'Whole30',
+                        code: 'veget'
+                    }
+
+                ],
+            }
+        },
+        methods: {
+            addTag(newTag) {
+                const tag = {
+                    name: newTag,
+                    code: newTag.substring(0, 2) + Math.floor((Math.random() * 10000000))
+                }
+                this.options.push(tag);
+                this.value.push(tag);
+            }
+        },
+        watch: {
+            value() {
+                this.$emit("valueChanged", this.value)
+            },
+        }
+    }
+
 </script>
 
 
@@ -121,9 +105,9 @@
 
 
 <style>
-	.my-selector {
-		width: 20rem;
+    .my-selector {
+        width: 20rem;
 
-	}
+    }
 
 </style>

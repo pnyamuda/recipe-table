@@ -5,7 +5,7 @@
 
 
 		<div>
-			<label class="typo__label">Dish</label>
+			<label class="typo__label">Meal Type</label>
 			<multiselect :close-on-select="false" v-model="value4" tag-placeholder="Add this as new tag" placeholder="Search or add a tag" label="name" track-by="code" :options="options" :multiple="true" :taggable="true" @tag="addTag"></multiselect>
 		</div>
 
@@ -37,7 +37,7 @@
 						code: 'main'
 					},],
 				options: [{
-						name: 'Biscuits and cookies',
+						name: 'side dish',
 						code: 'bisc'
 					},
 					{
@@ -45,55 +45,51 @@
 						code: 'bre'
 					},
 					{
-						name: 'Cereals',
+						name: 'dessert',
 						code: 'cere'
 					},
 					{
-						name: 'Condiments and sauces',
+						name: 'appetizer',
 						code: 'condime'
 					},
 					{
-						name: 'Drinks',
+						name: 'salad',
 						code: 'drink'
 					},
 					{
-						name: 'Desserts',
+						name: 'bread',
 						code: 'desse'
 					},
 					{
-						name: 'Pancake',
+						name: 'breakfast',
 						code: 'pan'
 					},
 					{
-						name: 'Preps',
+						name: 'soup',
 						code: 'pre'
 					},
 					{
-						name: 'Preserve',
+						name: 'beverage',
 						code: 'preserv'
 					},
 					{
-						name: 'salad',
+						name: 'sauce',
 						code: 'sald'
 					},
 					{
-						name: 'Sandwiches',
+						name: 'marinade',
 						code: 'wiches'
 					},
 					{
-						name: 'Side dish',
+						name: 'fingerfood',
 						code: 'dishs'
 					},
 					{
-						name: 'soup',
+						name: 'snack',
 						code: 'soupss'
 					},
 					{
-						name: 'Starter',
-						code: 'startr'
-					},
-					{
-						name: 'Sweets',
+						name: 'drink',
 						code: 'swts'
 					},
 
