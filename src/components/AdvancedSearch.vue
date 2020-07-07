@@ -313,14 +313,13 @@
 
 
     #advancedSearch {
-        display: grid;
-        grid-template-columns: 30% 30% 30%;
-        grid-template-rows: 5rem 5rem;
+        display:flex;
+        flex-direction: column;
         position: relative;
         top: 2rem;
         width: 95%;
         margin: auto;
-        border: 1px solid red;
+        align-items: center;
     }
 
     #searchInput {

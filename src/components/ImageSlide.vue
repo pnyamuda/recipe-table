@@ -61,7 +61,8 @@
 
 	.slide {
 		display: block;
-		height: 500px;
+		/*height: 500px;*/
+        height: 300px;
 		-o-object-fit: cover;
 		object-fit: cover;
 		width: 100%;

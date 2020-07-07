@@ -3,28 +3,20 @@
 
         <imageSlide></imageSlide>
 
-        <div class="myImg">
-
-            <div class="myLove">
-
-                <div class="contenedor" style='background: url("https://picsum.photos/id/866/600/600");'>
-                    <h1>Prueba</h1>
-                    <p>Texto de prueba</p>
-                </div>
-                <div class="nombre">Simple Hover Effect Simple Hover Effect Simple Hover Effect Simple Hover Effect Simple Hover Effect</div>
-
-            </div>
 
 
-          
+        <div id="intro-box">
+            <h1>Find thousands of tested, healthy, whole-food recipes</h1>
         </div>
 
 
+        <div class="meal-title">
 
-        <div id="container">
+            <p>Type of Meals</p>
+        </div>
 
 
-
+        <div class="type1">
 
             <div class="effect-1">
                 <div class="effect-img">
@@ -34,15 +26,15 @@
                     <h2>Dessert</h2>
                     <p> interdum felis in, auctor ligula.</p>
                     <div class="effect-btn">
-                       <router-link to="/search/type=dessert"><a class="btn" href="#">
-                            Read More
-                        </a></router-link>
+                        <router-link to="/search/type=dessert"><a class="btn" href="#">
+                                Read More
+                            </a></router-link>
                     </div>
                 </div>
             </div>
-            
-            
-            
+
+
+
             <div class="effect-1">
                 <div class="effect-img">
                     <img src="../assets/vegan.jpg" alt="Image">
@@ -51,15 +43,15 @@
                     <h2>Main Course</h2>
                     <p> interdum felis in, auctor ligula.</p>
                     <div class="effect-btn">
-                       <router-link to="/search/type=main course"><a class="btn" href="#">
-                            Read More
-                        </a></router-link>
+                        <router-link to="/search/type=main course"><a class="btn" href="#">
+                                Read More
+                            </a></router-link>
                     </div>
                 </div>
             </div>
-            
-            
-            
+
+
+
             <div class="effect-1">
                 <div class="effect-img">
                     <img src="../assets/vegan.jpg" alt="Image">
@@ -68,15 +60,15 @@
                     <h2>Breakfast</h2>
                     <p> interdum felis in, auctor ligula.</p>
                     <div class="effect-btn">
-                       <router-link to="/search/type=breakfast"><a class="btn" href="#">
-                            Read More
-                        </a></router-link>
+                        <router-link to="/search/type=breakfast"><a class="btn" href="#">
+                                Read More
+                            </a></router-link>
                     </div>
                 </div>
             </div>
-            
-            
-             <div class="effect-1">
+
+
+            <div class="effect-1">
                 <div class="effect-img">
                     <img src="../assets/vegan.jpg" alt="Image">
                 </div>
@@ -84,16 +76,16 @@
                     <h2>Appetizer</h2>
                     <p> interdum felis in, auctor ligula.</p>
                     <div class="effect-btn">
-                       <router-link to="/search/type=appetizer"><a class="btn" href="#">
-                            Read More
-                        </a></router-link>
+                        <router-link to="/search/type=appetizer"><a class="btn" href="#">
+                                Read More
+                            </a></router-link>
                     </div>
                 </div>
             </div>
-            
-            
-            
-             <div class="effect-1">
+
+
+
+            <div class="effect-1">
                 <div class="effect-img">
                     <img src="../assets/vegan.jpg" alt="Image">
                 </div>
@@ -101,15 +93,139 @@
                     <h2>Salad</h2>
                     <p> interdum felis in, auctor ligula.</p>
                     <div class="effect-btn">
-                       <router-link to="/search/type=salad"><a class="btn" href="#">
-                            Read More
-                        </a></router-link>
+                        <router-link to="/search/type=salad"><a class="btn" href="#">
+                                Read More
+                            </a></router-link>
                     </div>
                 </div>
             </div>
-            
+
+            <div class="effect-1">
+                <div class="effect-img">
+                    <img src="../assets/vegan.jpg" alt="Image">
+                </div>
+                <div class="effect-text">
+                    <h2>Snack</h2>
+                    <p> interdum felis in, auctor ligula.</p>
+                    <div class="effect-btn">
+                        <router-link to="/search/type=snack"><a class="btn" href="#">
+                                Read More
+                            </a></router-link>
+                    </div>
+                </div>
+            </div>
+
 
         </div>
+
+
+        <div class="meal-title">
+            <p>Around the World</p>
+        </div>
+
+
+        <div class="type1">
+
+            <div class="effect-1">
+                <div class="effect-img">
+                    <img src="../assets/vegan.jpg" alt="Image">
+                </div>
+                <div class="effect-text">
+                    <h2>African</h2>
+                    <p> interdum felis in, auctor ligula.</p>
+                    <div class="effect-btn">
+                        <router-link to="/search/cuisine=African"><a class="btn" href="#">
+                                Read More
+                            </a></router-link>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="effect-1">
+                <div class="effect-img">
+                    <img src="../assets/vegan.jpg" alt="Image">
+                </div>
+                <div class="effect-text">
+                    <h2>Chinese</h2>
+                    <p> interdum felis in, auctor ligula.</p>
+                    <div class="effect-btn">
+                        <router-link to="/search/cuisine=Chinese"><a class="btn" href="#">
+                                Read More
+                            </a></router-link>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="effect-1">
+                <div class="effect-img">
+                    <img src="../assets/vegan.jpg" alt="Image">
+                </div>
+                <div class="effect-text">
+                    <h2>French</h2>
+                    <p> interdum felis in, auctor ligula.</p>
+                    <div class="effect-btn">
+                        <router-link to="/search/cuisine=French"><a class="btn" href="#">
+                                Read More
+                            </a></router-link>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="effect-1">
+                <div class="effect-img">
+                    <img src="../assets/vegan.jpg" alt="Image">
+                </div>
+                <div class="effect-text">
+                    <h2>Indian</h2>
+                    <p> interdum felis in, auctor ligula.</p>
+                    <div class="effect-btn">
+                        <router-link to="/search/cuisine=Indian"><a class="btn" href="#">
+                                Read More
+                            </a></router-link>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="effect-1">
+                <div class="effect-img">
+                    <img src="../assets/vegan.jpg" alt="Image">
+                </div>
+                <div class="effect-text">
+                    <h2>Korean</h2>
+                    <p> interdum felis in, auctor ligula.</p>
+                    <div class="effect-btn">
+                        <router-link to="/search/cuisine=Korean"><a class="btn" href="#">
+                                Read More
+                            </a></router-link>
+                    </div>
+                </div>
+            </div>
+
+            <div class="effect-1">
+                <div class="effect-img">
+                    <img src="../assets/vegan.jpg" alt="Image">
+                </div>
+                <div class="effect-text">
+                    <h2>Mexican</h2>
+                    <p> interdum felis in, auctor ligula.</p>
+                    <div class="effect-btn">
+                        <router-link to="/search/cuisine=Mexican"><a class="btn" href="#">
+                                Read More
+                            </a></router-link>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
 
 
 
@@ -202,6 +318,50 @@
 <style scoped>
     @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap");
 
+    .type1 {
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+    }
+
+    #intro-box {
+        width: 95%;
+        position: relative;
+        top: 2rem;
+        margin: auto;
+    }
+
+    h1 {
+        font-size: 2rem;
+        font-weight: bold;
+        text-align: center;
+        margin: auto;
+
+
+    }
+
+    div h1 {
+        width: 100%
+    }
+
+    .meal-title {
+        width: 100%;
+        font-size: 1.5rem;
+        text-align: center;
+        margin-top: 4rem;
+
+    }
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -282,11 +442,11 @@
 
     .nombre {
         text-align: center;
-        width:400px;
+        width: 400px;
         font-family: sans-serif;
         font-size: 1rem;
         margin-top: -1rem;
-        
+
     }
 
 
@@ -322,12 +482,13 @@
     }
 
     .myLove {
-        padding:0.1rem 1rem 0.5rem 1rem;
+        padding: 0.1rem 1rem 0.5rem 1rem;
         cursor: pointer;
-        
+
     }
+
     .myLove:hover {
-        box-shadow: 0 0 11px rgba(33,33,33,.4); 
+        box-shadow: 0 0 11px rgba(33, 33, 33, .4);
     }
 
 
