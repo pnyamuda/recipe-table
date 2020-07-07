@@ -6,7 +6,7 @@
 
         <div>
             <label class="typo__label">Cuisine Labels</label>
-            <multiselect :close-on-select="false" v-model="value5" tag-placeholder="Add this as new tag" placeholder="Search or add a tag" label="name" track-by="code" :options="options" :multiple="true" :taggable="true" @tag="addTag"></multiselect>
+            <multiselect :close-on-select="false" v-model="value" tag-placeholder="Add this as new tag" placeholder="Search or add a tag" label="name" track-by="code" :options="options" :multiple="true" :taggable="false" @tag="addTag"></multiselect>
         </div>
 
 
@@ -32,10 +32,7 @@
         },
         data() {
             return {
-                value5: [{
-                    name: 'American',
-                    code: 'americ'
-                }],
+                value:[],
                 options: [{
                         name: 'American',
                         code: 'americ'
@@ -89,7 +86,7 @@
         },
         watch: {
             value() {
-                this.$emit("cuisineChanged", this.value5)
+                this.$emit("cuisineChanged", this.value)
             },
         }
     }

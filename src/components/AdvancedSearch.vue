@@ -19,18 +19,18 @@
 
         <p>{{dishLabels}}</p>
         <p>{{healthLabels}}</p>
-        <p>{{searchFood}}</p>
+        <p>{{cuisineLabels}}</p>
 
 
         <div class="myImg">
 
             <div class="myLove" v-for="foodRecipe in foodRecipes" :key="foodRecipe.id" v-on:click="myRecipe">
-                
-                 <div v-bind:id="foodRecipe.id" class="contenedor" v-bind:style="'background:url('+foodRecipe.image+')'">
+
+                <div v-bind:id="foodRecipe.id" class="contenedor" v-bind:style="'background:url('+foodRecipe.image+')'">
                     <h1 class="image-text">{{foodRecipe.title}}</h1>
                     <p></p>
                 </div>
-                
+
                 <div v-bind:id="foodRecipe.id" class="nombre">{{foodRecipe.title}}</div>
 
             </div>
@@ -99,19 +99,9 @@
                 categorySearchImage: false,
                 advancedSearchImage: true,
                 foodRecipes: [],
-                healthLabels: [{
-                    name: '',
-                    code: ''
-                }, ],
-                dishLabels: [{
-                    name: '',
-                    code: ''
-                }, ],
-
-                cuisineLabels: [{
-                    name: '',
-                    code: ''
-                }],
+                healthLabels: [],
+                dishLabels: [],
+                cuisineLabels: [],
 
             }
         },
@@ -199,7 +189,7 @@
 
     .contenedor {
         width: 18.75rem;
-        height:18.75rem;
+        height: 18.75rem;
         margin: 2em auto;
         display: block;
         position: relative;

@@ -32,10 +32,7 @@
         },
         data() {
             return {
-                value: [{
-                    name: 'Vegetarian',
-                    code: 'veget'
-                }, ],
+                value: [],
                 options: [{
                         name: 'Gluten Free',
                         code: 'alcohol'
