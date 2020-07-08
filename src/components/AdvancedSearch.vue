@@ -21,17 +21,19 @@
 
         <div class="myImg">
 
-            <div class="container myLove" v-for="foodRecipe in foodRecipes" :key="foodRecipe.id" >
+            <div class="container myLove" v-for="foodRecipe in foodRecipes" :key="foodRecipe.id">
                 <div class="content">
-                    <a>
-                        <div class="content-overlay" v-on:click="myRecipe" v-bind:id="foodRecipe.id"></div>
-                        <img class="content-image" v-bind:src="foodRecipe.image">
-                        <div class="content-details fadeIn-bottom">
-                            <h3 class="content-title">{{foodRecipe.title}}</h3>
-                        </div>
-                    </a>
+                    <router-link :to="'/recipe/'+foodRecipe.id" exact> <a>
+                            <div class="content-overlay" v-on:click="myRecipe" v-bind:id="foodRecipe.id"></div>
+                            <img class="content-image" v-bind:src="foodRecipe.image">
+                            <div class="content-details fadeIn-bottom">
+                                <h3 class="content-title">{{foodRecipe.title}}</h3>
+                            </div>
+                        </a></router-link>
                 </div>
-               <router-link :to="'/recipe/'+foodRecipe.id" exact><h3 class="title">{{foodRecipe.title}}</h3></router-link>
+                <router-link :to="'/recipe/'+foodRecipe.id" exact>
+                    <h3 class="title">{{foodRecipe.title}}</h3>
+                </router-link>
             </div>
 
 
@@ -465,7 +467,7 @@
             display: grid;
             grid-template-columns: 30% 30%;
             grid-template-rows: 8rem 8rem;
-            grid-column-gap:10%;
+            grid-column-gap: 10%;
             height: 20rem;
             width: 88%;
             margin: auto;
