@@ -4,30 +4,32 @@
         <mdb-container class="text-center text-md-left">
             <mdb-row class="text-center text-md-left mt-3 pb-3">
                 <mdb-col md="3" lg="3" xl="3" class="mx-auto mt-3">
-                    <h6 class="text-uppercase mb-4 font-weight-bold">Recipe Table</h6>
-                    <p>uses the awesome Edamam API for recipes and nutrition data.</p>
+                    <h6 class="text-uppercase mb-4 font-weight-bold">
+                        <router-link to="/" exact id="logo-lin"><span>Trendy<span id="recip">recipe</span></span></router-link>
+                    </h6>
+                    <p>uses the Spoonacular API for recipes and nutrition data.</p>
                 </mdb-col>
                 <hr class="w-100 clearfix d-md-none" />
                 <mdb-col md="2" lg="2" xl="2" class="mx-auto mt-3">
-                    <h6 class="text-uppercase mb-4 font-weight-bold">Recipe Table</h6>
-                    <p><a href="#!">Home</a></p>
-                    <p><a href="#!">Advanced Search</a></p>
+                    <h6 class="text-uppercase mb-4 font-weight-bold">Trendyrecipe</h6>
+                    <p><router-link to="/" exact><a>Home</a></router-link></p>
+                    <p><router-link to="/search/recipe" exact><a>Advanced Search</a></router-link></p>
                 </mdb-col>
-                <hr class="w-100 clearfix d-md-none" />
+                <!--  <hr class="w-100 clearfix d-md-none" />
                 <mdb-col md="3" lg="2" xl="2" class="mx-auto mt-3">
                     <h6 class="text-uppercase mb-4 font-weight-bold">Useful links</h6>
                     <p><a href="#!">Your Account</a></p>
                     <p><a href="#!">Become an Affiliate</a></p>
                     <p><a href="#!">Shipping Rates</a></p>
                     <p><a href="#!">Help</a></p>
-                </mdb-col>
+                </mdb-col> -->
                 <hr class="w-100 clearfix d-md-none" />
                 <mdb-col md="4" lg="3" xl="3" class="mx-auto mt-3">
                     <h6 class="text-uppercase mb-4 font-weight-bold">Contact</h6>
-                    <p><i class="fas fa-home mr-3"></i> New York, NY 10012, US</p>
-                    <p><i class="fas fa-envelope mr-3"></i> info@gmail.com</p>
-                    <p><i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
-                    <p><i class="fas fa-print mr-3"></i> + 01 234 567 89</p>
+                    <!--  <p><i class="fas fa-home mr-3"></i> New York, NY 10012, US</p>-->
+                    <p><i class="fas fa-envelope mr-3"></i> ptnrlab@gmail.com</p>
+                    <p><i class="fas fa-phone mr-3"></i> +27 81 589 6615</p>
+                    <!--    <p><i class="fas fa-print mr-3"></i> + 01 234 567 89</p> -->
                 </mdb-col>
             </mdb-row>
             <hr />
@@ -73,3 +75,19 @@
     }
 
 </script>
+
+<style>
+    #logo-lin {
+        background-color: transparent;
+        color: #ffffff;
+        font-family: 'Lobster', cursive;
+        font-size: 2rem;
+
+    }
+
+    #recip {
+        color: lightgray;
+
+    }
+
+</style>

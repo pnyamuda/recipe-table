@@ -41,7 +41,7 @@
 
 	#slider {
 		position: relative;
-		top: 1.5rem;
+		top: 1.4rem;
         
 	}
     #foot {

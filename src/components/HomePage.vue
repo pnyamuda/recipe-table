@@ -1,12 +1,13 @@
 <template>
     <div>
 
-        <imageSlide></imageSlide>
+        <imageSlide id="my-slider"></imageSlide>
 
 
 
         <div id="intro-box">
-            <h1>Find thousands of tested, healthy, whole-food recipes</h1>
+            <h1>Find thousands of tested, healthy, whole-food recipes. <!--Whether you’re in the mood for something warm, cheesy or full of carbs, you’re sure to find exactly what you’re craving. From soups to appetizers, these recipes will soothe your soul and fill your stomach. You can find recipes based on meal types, cuisines and diets.--></h1>
+            <p class="intro-text">Whether you’re in the mood for something warm, cheesy or full of carbs, you’re sure to find exactly what you’re craving. From soups to appetizers, these recipes will soothe your soul and fill your stomach. You can find recipes based on meal types, cuisines and diets.</p>
         </div>
 
 
@@ -20,13 +21,13 @@
 
             <div class="effect-1">
                 <div class="effect-img">
-                    <img src="../assets/vegan.jpg" alt="Image">
+                    <img src="https://imagesvc.meredithcorp.io/v3/mm/image?q=85&c=sc&poi=face&url=https%3A%2F%2Fimg1.cookinglight.timeinc.net%2Fsites%2Fdefault%2Ffiles%2Fstyles%2F4_3_horizontal_-_1200x900%2Fpublic%2Fupdated_main_images%2F0211-vanilla-cheesecake-cherry-topping-x.jpg%3Fitok%3Dp2H6vW0H" alt="Image">
                 </div>
                 <div class="effect-text">
                     <h2>Dessert</h2>
                     <div class="effect-btn">
                         <router-link to="/search/type=dessert"><a class="btn" href="#">
-                                Read More
+                                See Recipes
                             </a></router-link>
                     </div>
                 </div>
@@ -36,13 +37,13 @@
 
             <div class="effect-1">
                 <div class="effect-img">
-                    <img src="../assets/vegan.jpg" alt="Image">
+                    <img src="https://food.fnr.sndimg.com/content/dam/images/food/fullset/2013/11/25/0/FNK_pan-seared-salmon-with-kale-apple-salad_s4x3.jpg.rend.hgtvcom.616.462.suffix/1387918756116.jpeg" alt="Image">
                 </div>
                 <div class="effect-text">
                     <h2>Main Course</h2>
                     <div class="effect-btn">
                         <router-link to="/search/type=main course"><a class="btn" href="#">
-                                Read More
+                                See Recipes
                             </a></router-link>
                     </div>
                 </div>
@@ -52,13 +53,13 @@
 
             <div class="effect-1">
                 <div class="effect-img">
-                    <img src="../assets/vegan.jpg" alt="Image">
+                    <img src="https://ifoodreal.com/wp-content/uploads/2019/04/almond-flour-pancakes-5.jpg" alt="Image">
                 </div>
                 <div class="effect-text">
                     <h2>Breakfast</h2>
                     <div class="effect-btn">
                         <router-link to="/search/type=breakfast"><a class="btn" href="#">
-                                Read More
+                                See Recipes
                             </a></router-link>
                     </div>
                 </div>
@@ -67,13 +68,13 @@
 
             <div class="effect-1">
                 <div class="effect-img">
-                    <img src="../assets/vegan.jpg" alt="Image">
+                    <img src="https://assets.kraftfoods.com/recipe_images/opendeploy/204521-ed1063f771b63748e585e1bce3d7e0676bd7f516_642x428.jpg" alt="Image">
                 </div>
                 <div class="effect-text">
                     <h2>Appetizer</h2>
                     <div class="effect-btn">
                         <router-link to="/search/type=appetizer"><a class="btn" href="#">
-                                Read More
+                                See Recipes
                             </a></router-link>
                     </div>
                 </div>
@@ -83,13 +84,13 @@
 
             <div class="effect-1">
                 <div class="effect-img">
-                    <img src="../assets/vegan.jpg" alt="Image">
+                    <img src="https://i2.wp.com/theculinarycook.com/wp-content/uploads/2019/05/types-of-salad-cobb.jpg?fit=900%2C600&ssl=1" alt="Image">
                 </div>
                 <div class="effect-text">
                     <h2>Salad</h2>
                     <div class="effect-btn">
                         <router-link to="/search/type=salad"><a class="btn" href="#">
-                                Read More
+                                See Recipes
                             </a></router-link>
                     </div>
                 </div>
@@ -97,13 +98,13 @@
 
             <div class="effect-1">
                 <div class="effect-img">
-                    <img src="../assets/vegan.jpg" alt="Image">
+                    <img src="https://d2gr5kl7dt2z3t.cloudfront.net/blog/wp-content/uploads/2015/09/22071529/shutterstock_248403373-750x500.jpg" alt="Image">
                 </div>
                 <div class="effect-text">
                     <h2>Snack</h2>
                     <div class="effect-btn">
                         <router-link to="/search/type=snack"><a class="btn" href="#">
-                                Read More
+                                See Recipes
                             </a></router-link>
                     </div>
                 </div>
@@ -122,13 +123,13 @@
 
             <div class="effect-1">
                 <div class="effect-img">
-                    <img src="../assets/vegan.jpg" alt="Image">
+                    <img src="https://buzzsouthafrica.com/wp-content/uploads/nshima.jpg" alt="Image">
                 </div>
                 <div class="effect-text">
                     <h2>African</h2>
                     <div class="effect-btn">
                         <router-link to="/search/cuisine=African"><a class="btn" href="#">
-                                Read More
+                                See Recipes
                             </a></router-link>
                     </div>
                 </div>
@@ -138,13 +139,13 @@
 
             <div class="effect-1">
                 <div class="effect-img">
-                    <img src="../assets/vegan.jpg" alt="Image">
+                    <img src="https://cook.fnr.sndimg.com/content/dam/images/cook/fullset/2011/12/13/0/CC-ching-he-huang_yangzhou-fried-rice-recipe_s4x3.jpg.rend.hgtvcom.616.462.suffix/1360706912125.jpeg" alt="Image">
                 </div>
                 <div class="effect-text">
                     <h2>Chinese</h2>
                     <div class="effect-btn">
                         <router-link to="/search/cuisine=Chinese"><a class="btn" href="#">
-                                Read More
+                                See Recipes
                             </a></router-link>
                     </div>
                 </div>
@@ -154,13 +155,13 @@
 
             <div class="effect-1">
                 <div class="effect-img">
-                    <img src="../assets/vegan.jpg" alt="Image">
+                    <img src="https://i.pinimg.com/originals/f6/e4/7a/f6e47aa3f4f3c097f88f2867e0a9f080.jpg" alt="Image">
                 </div>
                 <div class="effect-text">
                     <h2>French</h2>
                     <div class="effect-btn">
                         <router-link to="/search/cuisine=French"><a class="btn" href="#">
-                                Read More
+                                See Recipes
                             </a></router-link>
                     </div>
                 </div>
@@ -169,13 +170,13 @@
 
             <div class="effect-1">
                 <div class="effect-img">
-                    <img src="../assets/vegan.jpg" alt="Image">
+                    <img src="https://images.pexels.com/photos/2474661/pexels-photo-2474661.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Image">
                 </div>
                 <div class="effect-text">
                     <h2>Indian</h2>
                     <div class="effect-btn">
                         <router-link to="/search/cuisine=Indian"><a class="btn" href="#">
-                                Read More
+                                See Recipes
                             </a></router-link>
                     </div>
                 </div>
@@ -185,13 +186,13 @@
 
             <div class="effect-1">
                 <div class="effect-img">
-                    <img src="../assets/vegan.jpg" alt="Image">
+                    <img src="https://www.simplyrecipes.com/wp-content/uploads/2015/09/mulligatawny-soup-horiz-a-1500.jpg" alt="Image">
                 </div>
                 <div class="effect-text">
                     <h2>Korean</h2>
                     <div class="effect-btn">
                         <router-link to="/search/cuisine=Korean"><a class="btn" href="#">
-                                Read More
+                                See Recipes
                             </a></router-link>
                     </div>
                 </div>
@@ -199,13 +200,13 @@
 
             <div class="effect-1">
                 <div class="effect-img">
-                    <img src="../assets/vegan.jpg" alt="Image">
+                    <img src="https://assets.site-static.com/userFiles/1183/image/best-mexican-food-boulder-co.jpg" alt="Image">
                 </div>
                 <div class="effect-text">
                     <h2>Mexican</h2>
                     <div class="effect-btn">
                         <router-link to="/search/cuisine=Mexican"><a class="btn" href="#">
-                                Read More
+                                See Recipes
                             </a></router-link>
                     </div>
                 </div>
@@ -262,6 +263,11 @@
 
 <style scoped>
     @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap");
+    
+    #my-slider {
+        position: relative;
+        top: -0.1rem;
+    }
 
     .type1 {
         width: 90%;
@@ -275,16 +281,21 @@
         position: relative;
         top: 2rem;
         margin: auto;
+        
+    }
+    .intro-text {
+        text-align: center;
     }
 
     h1 {
-        font-size: 2rem;
-        font-weight: bold;
+        font-size:2rem;
         text-align: center;
         margin: auto;
+        font-weight: bold;
 
 
     }
+
 
     div h1 {
         width: 100%
@@ -295,6 +306,7 @@
         font-size: 1.5rem;
         text-align: center;
         margin-top: 4rem;
+        font-weight: bold;
 
     }
 
@@ -391,27 +403,41 @@
     }
 
 
-  
-    
+
+
     @media (min-width:480px) and (max-width:768px) {
         .type1 {
             display: grid;
             grid-template-columns: 49% 49%;
             grid-column-gap: 2%;
-            
+
+
         }
+
+        #intro-box {
+             width: 70%;
+          
+        }
+
     }
+
     @media (min-width:768px) {
         .type1 {
             display: grid;
             grid-template-columns: 32.5% 32.5% 32.5%;
             grid-column-gap: 2.5%;
-            
+
         }
-        
+
+        #intro-box {
+             width: 60%;
+           
+        }
+
+
     }
-    
-    
+
+
     /*
     
       @media (max-width:768px) {

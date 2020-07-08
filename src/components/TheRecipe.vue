@@ -225,7 +225,7 @@
     }
 
     #recipe-img {
-        width: 90%;
+        width:25rem;
         height: auto;
         display: block;
         margin: auto;
@@ -314,7 +314,7 @@
             margin: auto;
         }
         #recipe-img {
-            width:25rem
+            width:20rem
         }
 
         .div1 {
@@ -328,7 +328,8 @@
             border: 1px solid red;
             display: flex;
             flex-direction: column;
-            align-items: flex-start
+            align-items: flex-start;
+            margin-left: -1rem;
 
         }
         .name-source {

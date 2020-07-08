@@ -2,7 +2,7 @@
 
 	<div>
 
-		<agile :autoplay-speed="5000" :speed="2500" fade pause-on-hover pause-on-dots-hover autoplay :initial-slide="3" :navButtons="false"><img class="slide" src="https://images.unsplash.com/photo-1506260408121-e353d10b87c7?ixlib=rb-1.2.1&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb&amp;w=1600&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjE0NTg5fQ" /><img class="slide" src="https://images.unsplash.com/photo-1523712999610-f77fbcfc3843?ixlib=rb-1.2.1&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb&amp;w=1600&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjE0NTg5fQ" /><img class="slide" src="https://images.unsplash.com/photo-1524260855046-f743b3cdad07?ixlib=rb-1.2.1&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb&amp;w=1600&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjE0NTg5fQ" /><img class="slide" src="https://images.unsplash.com/photo-1526080676457-4544bf0ebba9?ixlib=rb-1.2.1&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb&amp;w=1600&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjE0NTg5fQ" /><img class="slide" src="https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-1.2.1&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb&amp;w=1600&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjE0NTg5fQ" /><img class="slide" src="https://images.unsplash.com/photo-1426170042593-200f250dfdaf?ixlib=rb-1.2.1&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb&amp;w=1600&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjE0NTg5fQ" /><img class="slide" src="https://images.unsplash.com/photo-1529815481058-55e5b656f6d6?ixlib=rb-1.2.1&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb&amp;w=1600&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjE0NTg5fQ" />
+		<agile :autoplay-speed="5000" :speed="2500" fade pause-on-hover pause-on-dots-hover autoplay :initial-slide="3" :navButtons="false"><img class="slide" src="https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs/105168995/original/af8c781921c5b18160c2e786a9a982caf39955cb/shoot-quality-food-photography.jpg" /><img class="slide" src="https://www.itl.cat/pngfile/big/10-103370_salad-food-wallpaper-food-images-high-resolution.jpg" /><img class="slide" src="https://images7.alphacoders.com/346/thumb-1920-346107.jpg" /><img class="slide" src="https://2.bp.blogspot.com/-nS_We57yD94/XMHKEuJeMNI/AAAAAAAAAN0/dZfrB6TaNgwomPfVbhFM48cx7nADypLsQCLcBGAs/s1600/IMG_20190421_145336.jpg" /><img class="slide" src="https://www.monpetitfour.com/wp-content/uploads/2017/07/cake-1971552_1920.jpg" /><img class="slide" src="https://anotherfoodcritic.files.wordpress.com/2015/09/bobs-shanghai-66-mapo-tofu.jpg" /><img class="slide" src="https://www.fodors.com/wp-content/uploads/2017/09/Weird-European-Foods-hero.jpg" />
 		</agile>
 
 
@@ -73,6 +73,12 @@
               height: 400px;
         }
         
+        
+    }
+    @media (min-width:1024.1px) {
+        .slide {
+              height: 500px;
+        }
         
     }
 
