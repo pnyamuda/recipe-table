@@ -4,61 +4,11 @@
 
         <div>
 
-            <div class="grid-container">
 
-                <div class="food-info">
-                    <div class="image"></div>
-
-                    <div class="source-block">
-
-                    </div>
-
-
-
-
-
-                    <div class="second-block">
-
-                        <div class="ingredients">
-
-                        </div>
-                        <div class="nutrient-table">
-                            <div>
-
-
-                            </div>
-                        </div>
-
-
-
-                    </div>
-
-
-                    <div class="third-block">
-
-                        <div class="diet-pie">
-
-                        </div>
-                        <div class="fat-pie">
-
-                        </div>
-                        <div class="carbs-pie">
-
-                        </div>
-                        <div class="related-recipes"></div>
-                    </div>
-
-
-
-                </div>
-
-
-
-            </div>
 
 
             <div class="parent">
-                <div class="div1"><img v-bind:src="src"></div>
+                <div class="div1"><img id="recipe-img" v-bind:src="src"></div>
                 <div class="div2">
                     <div class="name-source">
                         <p id="recipe-name">{{name}}</p>
@@ -66,37 +16,35 @@
 
                     </div>
                     <div id="time-box">
-                        <p>Yield: {{servings}} servings</p>
-                        <p>Ready in: {{time}} minutes</p>
-                        <p>Calories: {{calories}}</p>
-                        <div id="recipe-diets">
-                            <p v-for="diet in diets" :key="diet.id">{{diet}}</p>
-                        </div>
-
+                        <p>{{servings}} servings | {{time}} minutes </p>
                     </div>
-
-
 
                 </div>
 
                 <div class="div3">
-                    <p v-for="ingredient in ingredients" :key="ingredient.id">{{ingredient.original}}</p>
+                    <p class="my-titles">Ingredients</p>
+                    <ul>
+                        <li v-for="ingredient in ingredients" :key="ingredient.id">{{ingredient.original}}</li>
+                    </ul>
                 </div>
-                
-                
-                  <div class="div4">
+
+
+                <div class="div4">
+                    <p class="my-titles">Instructions</p>
                     <p>{{instructions}}</p>
                 </div>
 
-                
-                
-              
+
+
+
                 <div class="div6">
+                    <p class="my-titles">Diet</p>
                     <BalancedChart></BalancedChart>
                 </div>
-                
-                
-                  <div class="div5">
+
+
+                <div class="div5">
+                    <p class="my-titles">Nutrition</p>
                     <mdb-scrollbar height="200px">
                         <mdb-tbl bordered>
                             <mdb-tbl-head color="light">
@@ -119,7 +67,7 @@
                     </mdb-scrollbar>
                 </div>
 
-               
+
             </div>
 
 
@@ -141,9 +89,11 @@
         mdbTblBody,
         mdbScrollbar
     } from 'mdbvue';
-    
+
     import BalancedChart from "./BalancedChart.vue";
-     import {eventBus} from '../main'
+    import {
+        eventBus
+    } from '../main'
 
 
     export default {
@@ -154,7 +104,7 @@
             mdbTblBody,
             mdbScrollbar,
             BalancedChart,
-            
+
         },
         data() {
             return {
@@ -171,7 +121,7 @@
                 key: "",
                 instructions: "",
                 diets: "",
-                balancedDiet:"",
+                balancedDiet: "",
             }
         },
         methods: {
@@ -191,7 +141,7 @@
                     this.servings = info.data.servings;
                     this.time = info.data.readyInMinutes;
                     this.instructions = info.data.instructions;
-                    this.diets = info.data.diets;
+                    this.diets = info.data.diets
 
                     this.source = info.data.sourceName;
 
@@ -209,28 +159,28 @@
                 .then(info => {
 
                     console.log(info.data);
-                
-                //collecting nutrition information
-                
-                let allNutrientsCombined=info.data.bad.concat(info.data.good);
-                this.totalNutrients=allNutrientsCombined;
-                
-                let majorNutri=[];
-                majorNutri.push(info.data.fat);
-                majorNutri.push(info.data.carbs);
-                majorNutri.push(info.data.protein);
-                //removing the grams symbols to get only numbers
-                
-                majorNutri=majorNutri.map(val => parseInt(val));
-                
-                this.balancedDiet=majorNutri
-                console.log(this.balancedDiet);
-                
-                //emittig an event;
-                
-                eventBus.$emit("newInfo",this.balancedDiet)
-               
-                
+
+                    //collecting nutrition information
+
+                    let allNutrientsCombined = info.data.bad.concat(info.data.good);
+                    this.totalNutrients = allNutrientsCombined;
+
+                    let majorNutri = [];
+                    majorNutri.push(info.data.fat);
+                    majorNutri.push(info.data.carbs);
+                    majorNutri.push(info.data.protein);
+                    //removing the grams symbols to get only numbers
+
+                    majorNutri = majorNutri.map(val => parseInt(val));
+
+                    this.balancedDiet = majorNutri
+                    console.log(this.balancedDiet);
+
+                    //emittig an event;
+
+                    eventBus.$emit("newInfo", this.balancedDiet)
+
+
                     /*
 
                         this.name = info.recipe.label;
@@ -265,39 +215,81 @@
 
 <style scoped>
     @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap");
-    
-    #recipe-name {
-        font-size: 2rem;
-    }
-    .recipe-name {
+
+    .parent {
         display: flex;
         flex-direction: column;
+        align-items: center;
+        position: relative;
+        top: 2rem;
     }
 
-    #theRecipe {
+    #recipe-img {
         width: 90%;
-        display: grid;
-        grid-template-columns: 50% 50%;
-        grid-template-rows: auto auto;
+        height: auto;
+        display: block;
         margin: auto;
     }
 
-    #bar-graph {}
+    .div2 {
+        width: 100%;
+    }
 
-    .recipe-info {}
+    #recipe-name {
+        font-size: 2rem;
+        font-weight: bold;
+        text-align: center;
+    }
 
-    #time-box {
-        display:grid;
-        grid-template-columns: 30% 40% 30%;
-        grid-template-rows: 2rem 2rem;
+    #recipe-source {}
+
+    .name-source {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
 
     }
-    #recipe-diets {
-        grid-area: 2/1/3/3;
+
+
+    #time-box {
+        text-align: center;
+
+    }
+
+    #recipe-diets {}
+
+    .div3 {
         display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        flex-direction: row;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 90%;
+        margin: auto;
+    }
+
+    .my-titles {
+        font-weight: bold;
+        font-size: 1.5rem;
+    }
+
+    .div4 {
+        text-align: center;
+        width: 90%;
+        margin: auto;
+    }
+
+    .div6 {
+        width: 90%;
+        text-align: center;
+        margin: auto;
+    }
+    .div5 {
+        width: 90%;
+        margin: auto;
+        text-align: center;
+        position: relative;
+        top: 2rem;
     }
 
     .image {}
@@ -308,20 +300,9 @@
 
     .food-info,
     .second-block,
-    .third-block {
-        display: flex;
-        flex-direction: row;
-        width: 90%;
-        margin: auto;
-        position: relative;
-        justify-content: center;
-        flex-wrap: wrap;
-    }
+    .third-block {}
 
-    .source-block {
-        display: flex;
-        flex-direction: column;
-    }
+    /*
 
     .parent {
         width: 90%;
@@ -366,6 +347,8 @@
     .div7 {
         grid-area: 5 / 2 / 6 / 4;
     }
+    
+    */
 
     /*
     .grid-container {

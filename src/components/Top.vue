@@ -4,7 +4,7 @@
         <div id="nav-container">
             <mdb-navbar color="default-color-dark" dark>
                 <mdb-navbar-brand href="https://mdbootstrap.com/">
-                    Recipe Table
+                    <router-link to="/" exact> Recipe Table</router-link>
                 </mdb-navbar-brand>
                 <mdb-navbar-toggler>
                     <mdb-navbar-nav>

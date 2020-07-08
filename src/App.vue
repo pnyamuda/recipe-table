@@ -2,7 +2,7 @@
 	<div id="app">
 		<Top id="nav"></Top>
 		<router-view></router-view>
-        <Footer></Footer>
+        <Footer id="foot"></Footer>
 	</div>
 </template>
 
@@ -44,5 +44,9 @@
 		top: 1.5rem;
         
 	}
+    #foot {
+        position: relative;
+        top: 8rem;
+    }
 
 </style>

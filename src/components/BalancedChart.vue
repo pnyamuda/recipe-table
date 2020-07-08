@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="the-chart">
 
         <mdb-container>
             <mdb-doughnut-chart :data="myData" :options="doughnutChartOptions" :width="600" :height="300"></mdb-doughnut-chart>
@@ -64,5 +64,8 @@
 
 <style scoped>
     @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap");
+    .the-chart {
+        width: 100%;
+    }
 
 </style>
