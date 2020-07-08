@@ -24,7 +24,6 @@
                 </div>
                 <div class="effect-text">
                     <h2>Dessert</h2>
-                    <p> interdum felis in, auctor ligula.</p>
                     <div class="effect-btn">
                         <router-link to="/search/type=dessert"><a class="btn" href="#">
                                 Read More
@@ -41,7 +40,6 @@
                 </div>
                 <div class="effect-text">
                     <h2>Main Course</h2>
-                    <p> interdum felis in, auctor ligula.</p>
                     <div class="effect-btn">
                         <router-link to="/search/type=main course"><a class="btn" href="#">
                                 Read More
@@ -58,7 +56,6 @@
                 </div>
                 <div class="effect-text">
                     <h2>Breakfast</h2>
-                    <p> interdum felis in, auctor ligula.</p>
                     <div class="effect-btn">
                         <router-link to="/search/type=breakfast"><a class="btn" href="#">
                                 Read More
@@ -74,7 +71,6 @@
                 </div>
                 <div class="effect-text">
                     <h2>Appetizer</h2>
-                    <p> interdum felis in, auctor ligula.</p>
                     <div class="effect-btn">
                         <router-link to="/search/type=appetizer"><a class="btn" href="#">
                                 Read More
@@ -91,7 +87,6 @@
                 </div>
                 <div class="effect-text">
                     <h2>Salad</h2>
-                    <p> interdum felis in, auctor ligula.</p>
                     <div class="effect-btn">
                         <router-link to="/search/type=salad"><a class="btn" href="#">
                                 Read More
@@ -106,7 +101,6 @@
                 </div>
                 <div class="effect-text">
                     <h2>Snack</h2>
-                    <p> interdum felis in, auctor ligula.</p>
                     <div class="effect-btn">
                         <router-link to="/search/type=snack"><a class="btn" href="#">
                                 Read More
@@ -132,7 +126,6 @@
                 </div>
                 <div class="effect-text">
                     <h2>African</h2>
-                    <p> interdum felis in, auctor ligula.</p>
                     <div class="effect-btn">
                         <router-link to="/search/cuisine=African"><a class="btn" href="#">
                                 Read More
@@ -149,7 +142,6 @@
                 </div>
                 <div class="effect-text">
                     <h2>Chinese</h2>
-                    <p> interdum felis in, auctor ligula.</p>
                     <div class="effect-btn">
                         <router-link to="/search/cuisine=Chinese"><a class="btn" href="#">
                                 Read More
@@ -166,7 +158,6 @@
                 </div>
                 <div class="effect-text">
                     <h2>French</h2>
-                    <p> interdum felis in, auctor ligula.</p>
                     <div class="effect-btn">
                         <router-link to="/search/cuisine=French"><a class="btn" href="#">
                                 Read More
@@ -182,7 +173,6 @@
                 </div>
                 <div class="effect-text">
                     <h2>Indian</h2>
-                    <p> interdum felis in, auctor ligula.</p>
                     <div class="effect-btn">
                         <router-link to="/search/cuisine=Indian"><a class="btn" href="#">
                                 Read More
@@ -199,7 +189,6 @@
                 </div>
                 <div class="effect-text">
                     <h2>Korean</h2>
-                    <p> interdum felis in, auctor ligula.</p>
                     <div class="effect-btn">
                         <router-link to="/search/cuisine=Korean"><a class="btn" href="#">
                                 Read More
@@ -214,7 +203,6 @@
                 </div>
                 <div class="effect-text">
                     <h2>Mexican</h2>
-                    <p> interdum felis in, auctor ligula.</p>
                     <div class="effect-btn">
                         <router-link to="/search/cuisine=Mexican"><a class="btn" href="#">
                                 Read More
@@ -225,49 +213,6 @@
 
 
         </div>
-
-
-
-
-
-
-
-
-
-
-        <div id="">
-            <p>Cuisine Types</p>
-            <div>
-                <img>
-                <p>Peanut Free</p>
-            </div>
-
-
-        </div>
-
-        <div id="">
-            <p>Meal Types</p>
-            <div>
-            </div>
-
-
-        </div>
-
-        <div id="">
-            <p>Dish Types</p>
-            <div>
-            </div>
-
-        </div>
-
-        <div id="">
-            <p>Diet Meals</p>
-            <div>
-            </div>
-
-        </div>
-
-
 
 
     </div>
@@ -352,125 +297,6 @@
         margin-top: 4rem;
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-    .contenedor {
-        width: 400px;
-        height: 200px;
-        margin: 2em auto;
-        display: block;
-        position: relative;
-        background: url("https://picsum.photos/id/866/600/600");
-        background-position: center !important;
-        background-size: 100% 100% !important;
-        padding: 1em;
-        overflow: hidden;
-        -webkit-transition: all 0.5s;
-        transition: all 0.5s;
-    }
-
-    .contenedor:before {
-        position: absolute;
-        content: "";
-        top: 1em;
-        left: 2em;
-        width: 0;
-        height: 2px;
-        background-color: #000;
-        -webkit-transition: all 0.5s;
-        transition: all 0.5s;
-    }
-
-    .contenedor:after {
-        position: absolute;
-        content: "";
-        bottom: 1em;
-        right: 2em;
-        width: 0;
-        height: 2px;
-        background-color: #000;
-        -webkit-transition: all 0.5s;
-        transition: all 0.5s;
-    }
-
-    .contenedor h1 {
-        position: absolute;
-        left: 1em;
-        top: 0.5em;
-        -webkit-transform: translatex(-130%);
-        transform: translatex(-130%);
-        -webkit-transition: all 0.5s;
-        transition: all 0.5s;
-    }
-
-    .contenedor p {
-        position: absolute;
-        left: 2em;
-        top: 4em;
-        -webkit-transform: translatex(350%);
-        transform: translatex(350%);
-        -webkit-transition: all 0.5s;
-        transition: all 0.5s;
-    }
-
-    .contenedor:hover {
-        background-size: 120% 120%;
-        cursor: pointer;
-    }
-
-    .contenedor:hover h1,
-    .contenedor:hover p {
-        -webkit-transform: translatex(0%);
-        transform: translatex(0%);
-    }
-
-    .contenedor:hover:before,
-    .contenedor:hover:after {
-        width: 80%;
-    }
-
-    .nombre {
-        text-align: center;
-        width: 400px;
-        font-family: sans-serif;
-        font-size: 1rem;
-        margin-top: -1rem;
-
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     .myImg {
@@ -565,7 +391,30 @@
     }
 
 
-    @media (max-width:768px) {
+  
+    
+    @media (min-width:480px) and (max-width:768px) {
+        .type1 {
+            display: grid;
+            grid-template-columns: 49% 49%;
+            grid-column-gap: 2%;
+            
+        }
+    }
+    @media (min-width:768px) {
+        .type1 {
+            display: grid;
+            grid-template-columns: 32.5% 32.5% 32.5%;
+            grid-column-gap: 2.5%;
+            
+        }
+        
+    }
+    
+    
+    /*
+    
+      @media (max-width:768px) {
 
         #container {
             width: 90%;
@@ -610,5 +459,8 @@
         }
 
     }
+    
+    
+    */
 
 </style>

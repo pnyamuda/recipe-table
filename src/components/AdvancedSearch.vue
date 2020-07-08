@@ -2,10 +2,10 @@
     <div>
         <div id="advancedSearch">
 
-            <HealthSearch v-on:valueChanged="addHealthLabels($event)"></HealthSearch>
-            <DishSearch v-on:dishChanged="addDishLabels($event)"></DishSearch>
-            <CuisineSearch v-on:cuisineChanged="addCuisineLabels($event)"></CuisineSearch>
-            <div id="searchInput">
+            <HealthSearch class="selector" v-on:valueChanged="addHealthLabels($event)"></HealthSearch>
+            <DishSearch class="selector" v-on:dishChanged="addDishLabels($event)"></DishSearch>
+            <CuisineSearch class="selector" v-on:cuisineChanged="addCuisineLabels($event)"></CuisineSearch>
+            <div id="search-input">
                 <mdb-form-inline class="mr-auto mb-4">
                     <mdb-input class="mr-sm-2" type="text" placeholder="Search" aria-label="Search" v-model="searchFood" />
                     <mdb-btn type="button" @click="searchForRecipe" outline="success" rounded size="sm" class="mr-auto">Search</mdb-btn>
@@ -16,10 +16,6 @@
 
 
         </div>
-
-        <p>{{dishLabels}}</p>
-        <p>{{healthLabels}}</p>
-        <p>{{cuisineLabels}}</p>
 
 
         <div class="myImg">
@@ -39,29 +35,6 @@
 
         </div>
 
-
-        <div class="recipe-grid">
-
-
-
-
-            <div v-for="foodRecipe in foodRecipes" class="effect-1" :key="foodRecipe.id">
-                <div class="effect-img">
-                    <img v-bind:src="'https://spoonacular.com/recipeImages/'+foodRecipe.image" v-show="categorySearchImage">
-                </div>
-                <div class="effect-text">
-                    <h2>{{foodRecipe.title}}</h2>
-                    <div class="effect-btn" v-on:click="myRecipe">
-                        <a class="btn" v-bind:id="foodRecipe.id">Read More</a>
-                    </div>
-                </div>
-            </div>
-
-
-
-
-
-        </div>
 
 
 
@@ -264,7 +237,6 @@
 
     .nombre {
         text-align: center;
-        width: 100%;
         font-family: sans-serif;
         font-size: 1rem;
         margin-top: -1rem;
@@ -276,8 +248,9 @@
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        border: 1px solid red;
         justify-content: space-evenly;
+        width: 90%;
+        margin: auto;
     }
 
     .myLove {
@@ -313,17 +286,13 @@
 
 
     #advancedSearch {
-        display:flex;
+        display: flex;
         flex-direction: column;
         position: relative;
         top: 2rem;
         width: 95%;
         margin: auto;
         align-items: center;
-    }
-
-    #searchInput {
-        grid-area: 2/3/3/4
     }
 
     .recipe-grid {
@@ -395,5 +364,105 @@
         background: #ffffff;
         text-decoration: none;
     }
+
+    @media (min-width:480px) and (max-width:768px) {
+        .myImg {
+            display: grid;
+            grid-template-columns: 48% 48%;
+            grid-column-gap: 2%;
+            border: 1px solid red;
+        }
+
+        .contenedor {
+            width: 11.75rem;
+            height: 11.75rem;
+
+        }
+
+        .nombre {
+            text-align: center;
+            font-family: sans-serif;
+            font-size: 1rem;
+            margin-top: -1rem;
+            width: 10rem;
+            margin: auto;
+
+        }
+
+    }
+
+    @media (min-width:768.1px) and (max-width:1023.9px) {
+        #advancedSearch {
+            display: grid;
+            grid-template-columns: 49% 49%;
+            grid-template-rows: 8rem 8rem;
+            grid-column-gap: 1%;
+            height: 20rem;
+            width: 85%;
+
+
+        }
+
+        .selector {
+            margin-top: -2rem;
+            height: 6rem;
+        }
+
+        #search-input {}
+
+        .myImg {
+            display: grid;
+            grid-template-columns: 32.5% 32.5% 32.5%;
+            grid-column-gap: 2.5%;
+        }
+
+        .contenedor {
+            width: 12rem;
+            height: 12rem;
+
+        }
+
+        .myLove {
+            padding: none;
+        }
+
+        .nombre {
+            text-align: center;
+            font-family: sans-serif;
+            font-size: 1rem;
+            margin-top: -1rem;
+            width: 13rem;
+            margin: auto;
+
+        }
+
+
+    }
+    
+      @media (min-width:1024px) {
+            .contenedor {
+                width: 13.75rem;
+                height: 13.75rem;
+
+            }
+
+            .myImg {
+                display: grid;
+                grid-template-columns: 24% 24% 24% 24%;
+                grid-column-gap:;
+            }
+           .nombre {
+            text-align: center;
+            font-family: sans-serif;
+            font-size: 1rem;
+            margin-top: -1rem;
+            width: 12rem;
+            margin: auto;
+
+        }
+          
+
+
+        }
 
 </style>

@@ -67,5 +67,13 @@
 		object-fit: cover;
 		width: 100%;
 	}
+    
+    @media (min-width:768px) and (max-width:1024px) {
+        .slide {
+              height: 400px;
+        }
+        
+        
+    }
 
 </style>
