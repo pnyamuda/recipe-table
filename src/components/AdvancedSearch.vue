@@ -18,23 +18,47 @@
         </div>
 
 
+
+        <div class="myImg">
+
+            <div class="container myLove" v-for="foodRecipe in foodRecipes" :key="foodRecipe.id" >
+                <div class="content">
+                    <a>
+                        <div class="content-overlay" v-on:click="myRecipe" v-bind:id="foodRecipe.id"></div>
+                        <img class="content-image" v-bind:src="foodRecipe.image">
+                        <div class="content-details fadeIn-bottom">
+                            <h3 class="content-title">{{foodRecipe.title}}</h3>
+                        </div>
+                    </a>
+                </div>
+               <router-link :to="'/recipe/'+foodRecipe.id" exact><h3 class="title">{{foodRecipe.title}}</h3></router-link>
+            </div>
+
+
+        </div>
+
+
+
+
+
+        <!--
         <div class="myImg">
 
             <div class="myLove" v-for="foodRecipe in foodRecipes" :key="foodRecipe.id" v-on:click="myRecipe">
 
                 <div v-bind:id="foodRecipe.id" class="contenedor" v-bind:style="'background:url('+foodRecipe.image+')'">
-                    <h1 class="image-text">{{foodRecipe.title}}</h1>
+                    <h1 class="image-text"></h1>
                     <p></p>
                 </div>
 
-                <div v-bind:id="foodRecipe.id" class="nombre">{{foodRecipe.title}}</div>
+                <div v-bind:id="foodRecipe.id" class="nombre"></div>
 
             </div>
 
 
 
         </div>
-
+-->
 
 
 
@@ -139,7 +163,7 @@
 
         created() {
             axios
-                .get(`https://api.spoonacular.com/recipes/complexSearch?${this.$route.params.category}&apiKey=5900942a331f4623910b3ff1631c6b1b`)
+                .get(`https://api.spoonacular.com/recipes/complexSearch?${this.$route.params.category}&apiKey=5900942a331f4623910b3ff1631c6b1b&number=24`)
                 .then(response => {
                     console.log(response.data.results);
                     this.foodRecipes = response.data.results;
@@ -159,89 +183,117 @@
     @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap");
 
 
+    @import url(https://fonts.googleapis.com/css?family=Raleway);
 
-    .contenedor {
-        width: 18.75rem;
-        height: 18.75rem;
-        margin: 2em auto;
-        display: block;
-        position: relative;
-        background-position: center !important;
-        background-size: 100% 100% !important;
-        padding: 1em;
-        overflow: hidden;
-        -webkit-transition: all 0.5s;
-        transition: all 0.5s;
-        color: lightgreen;
+    *,
+    *:before,
+    *:after {
+        margin: 0;
+        padding: 0;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
     }
 
-    .contenedor:before {
-        position: absolute;
-        content: "";
-        top: 1em;
-        left: 2em;
-        width: 0;
-        height: 2px;
-        background-color: lightgreen;
-        -webkit-transition: all 0.5s;
-        transition: all 0.5s;
+
+
+    .container {
+        padding: 1em 0;
+        float: left;
+        width: 100%;
     }
 
-    .contenedor:after {
-        position: absolute;
-        content: "";
-        bottom: 1em;
-        right: 2em;
-        width: 0;
-        height: 2px;
-        background-color: lightgreen;
-        -webkit-transition: all 0.5s;
-        transition: all 0.5s;
-    }
 
-    .contenedor h1 {
-        position: absolute;
-        left: 1em;
-        top: 0.5em;
-        -webkit-transform: translatex(-130%);
-        transform: translatex(-130%);
-        -webkit-transition: all 0.5s;
-        transition: all 0.5s;
-    }
-
-    .contenedor p {
-        position: absolute;
-        left: 2em;
-        top: 4em;
-        -webkit-transform: translatex(350%);
-        transform: translatex(350%);
-        -webkit-transition: all 0.5s;
-        transition: all 0.5s;
-    }
-
-    .contenedor:hover {
-        background-size: 120% 120%;
-        cursor: pointer;
-    }
-
-    .contenedor:hover h1,
-    .contenedor:hover p {
-        -webkit-transform: translatex(0%);
-        transform: translatex(0%);
-    }
-
-    .contenedor:hover:before,
-    .contenedor:hover:after {
-        width: 80%;
-    }
-
-    .nombre {
+    .container .title {
+        color: #1a1a1a;
         text-align: center;
-        font-family: sans-serif;
-        font-size: 1rem;
-        margin-top: -1rem;
-        width: 20rem;
+        margin-bottom: 10px;
     }
+
+    .content {
+        position: relative;
+        width: 100%;
+        max-width: 30rem;
+        margin: auto;
+        overflow: hidden;
+    }
+
+    .content .content-overlay {
+        background: rgba(0, 0, 0, 0.7);
+        position: absolute;
+        height: 99%;
+        width: 100%;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        opacity: 0;
+        -webkit-transition: all 0.4s ease-in-out 0s;
+        -moz-transition: all 0.4s ease-in-out 0s;
+        transition: all 0.4s ease-in-out 0s;
+    }
+
+    .content:hover .content-overlay {
+        opacity: 1;
+    }
+
+    .content-image {
+        width: 100%;
+    }
+
+    .content-details {
+        position: absolute;
+        text-align: center;
+        padding-left: 1em;
+        padding-right: 1em;
+        width: 100%;
+        top: 50%;
+        left: 50%;
+        opacity: 0;
+        -webkit-transform: translate(-50%, -50%);
+        -moz-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        -webkit-transition: all 0.3s ease-in-out 0s;
+        -moz-transition: all 0.3s ease-in-out 0s;
+        transition: all 0.3s ease-in-out 0s;
+    }
+
+    .content:hover .content-details {
+        top: 50%;
+        left: 50%;
+        opacity: 1;
+    }
+
+    .content-details h3 {
+        color: #fff;
+        font-weight: 500;
+        letter-spacing: 0.15em;
+        margin-bottom: 0.5em;
+        text-transform: uppercase;
+    }
+
+    .content-details p {
+        color: #fff;
+        font-size: 0.8em;
+    }
+
+    .fadeIn-bottom {
+        top: 80%;
+    }
+
+    .content-title {
+        font-size: 1rem;
+    }
+
+    .title {
+        font-size: 1.5rem;
+    }
+
+
+
+
+
+
 
 
     .myImg {
@@ -251,11 +303,15 @@
         justify-content: space-evenly;
         width: 90%;
         margin: auto;
+        position: relative;
+        top: 4rem;
     }
 
     .myLove {
-        padding: 0.1rem 1rem 0.5rem 1rem;
+        padding-top: 1rem;
         cursor: pointer;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
 
     }
 
@@ -267,17 +323,6 @@
         font-size: 1.5rem;
         margin-top: 1rem;
     }
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -373,32 +418,18 @@
             border: 1px solid red;
         }
 
-        .contenedor {
-            width: 11.75rem;
-            height: 11.75rem;
-
-        }
-
-        .nombre {
-            text-align: center;
-            font-family: sans-serif;
-            font-size: 1rem;
-            margin-top: -1rem;
-            width: 10rem;
-            margin: auto;
-
-        }
 
     }
 
     @media (min-width:768.1px) and (max-width:1023.9px) {
         #advancedSearch {
             display: grid;
-            grid-template-columns: 49% 49%;
+            grid-template-columns: 48% 48%;
             grid-template-rows: 8rem 8rem;
-            grid-column-gap: 1%;
+            grid-column-gap: 2%;
             height: 20rem;
-            width: 85%;
+            width: 88%;
+            margin: auto;
 
 
         }
@@ -408,7 +439,9 @@
             height: 6rem;
         }
 
-        #search-input {}
+        #search-input {
+            margin-top: 0.8rem
+        }
 
         .myImg {
             display: grid;
@@ -416,53 +449,130 @@
             grid-column-gap: 2.5%;
         }
 
-        .contenedor {
-            width: 12rem;
-            height: 12rem;
-
-        }
-
-        .myLove {
-            padding: none;
-        }
-
-        .nombre {
-            text-align: center;
-            font-family: sans-serif;
-            font-size: 1rem;
-            margin-top: -1rem;
-            width: 13rem;
-            margin: auto;
-
-        }
 
 
     }
-    
-      @media (min-width:1024px) {
-            .contenedor {
-                width: 13.75rem;
-                height: 13.75rem;
 
-            }
+    @media (min-width:1024px) {
 
-            .myImg {
-                display: grid;
-                grid-template-columns: 24% 24% 24% 24%;
-                grid-column-gap:;
-            }
-           .nombre {
-            text-align: center;
-            font-family: sans-serif;
-            font-size: 1rem;
-            margin-top: -1rem;
-            width: 12rem;
+        .myImg {
+            display: grid;
+            grid-template-columns: 24% 24% 24% 24%;
+            grid-column-gap: 1%;
+        }
+
+        #advancedSearch {
+            display: grid;
+            grid-template-columns: 30% 30%;
+            grid-template-rows: 8rem 8rem;
+            grid-column-gap:10%;
+            height: 20rem;
+            width: 88%;
             margin: auto;
-
         }
-          
 
-
+        .selector {
+            margin-top: -2rem;
+            height: 6rem;
         }
+
+        #search-input {
+            margin-top: 0.8rem
+        }
+
+
+
+    }
+
+    /*
+    
+     .contenedor {
+        width: 18.75rem;
+        height: 18.75rem;
+        margin: 2em auto;
+        display: block;
+        position: relative;
+        background-position: center !important;
+        background-size: 100% 100% !important;
+        padding: 1em;
+        overflow: hidden;
+        -webkit-transition: all 0.5s;
+        transition: all 0.5s;
+        color: lightgreen;
+    }
+
+    .contenedor:before {
+        position: absolute;
+        content: "";
+        top: 1em;
+        left: 2em;
+        width: 0;
+        height: 2px;
+        background-color: lightgreen;
+        -webkit-transition: all 0.5s;
+        transition: all 0.5s;
+    }
+
+    .contenedor:after {
+        position: absolute;
+        content: "";
+        bottom: 1em;
+        right: 2em;
+        width: 0;
+        height: 2px;
+        background-color: lightgreen;
+        -webkit-transition: all 0.5s;
+        transition: all 0.5s;
+    }
+
+    .contenedor h1 {
+        position: absolute;
+        left: 1em;
+        top: 0.5em;
+        -webkit-transform: translatex(-130%);
+        transform: translatex(-130%);
+        -webkit-transition: all 0.5s;
+        transition: all 0.5s;
+    }
+
+    .contenedor p {
+        position: absolute;
+        left: 2em;
+        top: 4em;
+        -webkit-transform: translatex(350%);
+        transform: translatex(350%);
+        -webkit-transition: all 0.5s;
+        transition: all 0.5s;
+    }
+
+    .contenedor:hover {
+        background-size: 120% 120%;
+        cursor: pointer;
+    }
+
+    .contenedor:hover h1,
+    .contenedor:hover p {
+        -webkit-transform: translatex(0%);
+        transform: translatex(0%);
+    }
+
+    .contenedor:hover:before,
+    .contenedor:hover:after {
+        width: 80%;
+    }
+
+    .nombre {
+        text-align: center;
+        font-family: sans-serif;
+        font-size: 1rem;
+        margin-top: -1rem;
+        width: 20rem;
+    }
+
+    
+    
+    
+    
+    */
 
 </style>
