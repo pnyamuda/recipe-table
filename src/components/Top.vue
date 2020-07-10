@@ -93,6 +93,9 @@
 <style>
      @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Merienda+One&display=swap');
     
+     @import url('https://fonts.googleapis.com/css2?family=Cabin:wght@500&display=swap');
+
+    
     .my-links {
         transition: 0.4s;
         color: #ffffff;
@@ -114,8 +117,9 @@
 
     .router-link-active:hover {}
 
-    .my-links {
+    .my-links, my-0 {
         color: #ffffff;
+        font-family: 'Cabin', sans-serif;
     }
 
     #logo-link {

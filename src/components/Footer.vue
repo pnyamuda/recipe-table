@@ -77,6 +77,8 @@
 </script>
 
 <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cabin:wght@500&display=swap');
+    
     #logo-lin {
         background-color: transparent;
         color: #ffffff;
@@ -88,6 +90,10 @@
     #recip {
         color: lightgray;
 
+    }
+    
+    p, h6 {
+        font-family: 'Cabin', sans-serif;
     }
 
 </style>

@@ -182,10 +182,15 @@
 </script>
 
 <style scoped>
-    @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap");
+    
+    
+    @import url('https://fonts.googleapis.com/css2?family=Cabin:wght@500&display=swap');
 
-
-    @import url(https://fonts.googleapis.com/css?family=Raleway);
+    * {
+       font-family: 'Cabin', sans-serif;
+        font-size: 1rem;
+    }
+ 
 
     *,
     *:before,
@@ -480,6 +485,10 @@
 
         #search-input {
             margin-top: 0.8rem
+        }
+
+        .myImg {
+            top: 3rem;
         }
 
 

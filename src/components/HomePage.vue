@@ -6,8 +6,10 @@
 
 
         <div id="intro-box">
-            <h1>Find thousands of tested, healthy, whole-food recipes. <!--Whether you’re in the mood for something warm, cheesy or full of carbs, you’re sure to find exactly what you’re craving. From soups to appetizers, these recipes will soothe your soul and fill your stomach. You can find recipes based on meal types, cuisines and diets.--></h1>
-            <p class="intro-text">Whether you’re in the mood for something warm, cheesy or full of carbs, you’re sure to find exactly what you’re craving. From soups to appetizers, these recipes will soothe your soul and fill your stomach. You can find recipes based on meal types, cuisines and diets.</p>
+            <h1>Find thousands of tested, healthy, whole-food recipes.
+                <!--Whether you’re in the mood for something warm, cheesy or full of carbs, you’re sure to find exactly what you’re craving. From soups to appetizers, these recipes will soothe your soul and fill your stomach. You can find recipes based on meal types, cuisines and diets.-->
+            </h1>
+            <p class="intro-text">Whether you’re in the mood for something warm, cheesy or full of carbs, you’re sure to find exactly what you’re craving. From soups to appetizers, these recipes will soothe your soul and fill your stomach. You can also find recipes based on meal types, cuisines and diets.</p>
         </div>
 
 
@@ -53,7 +55,7 @@
 
             <div class="effect-1">
                 <div class="effect-img">
-                    <img src="https://ifoodreal.com/wp-content/uploads/2019/04/almond-flour-pancakes-5.jpg" alt="Image">
+                    <img src="https://cdn.vox-cdn.com/thumbor/hM7GJ9Rmw1ridaYbc7kCK2RX8o8=/0x0:1080x607/1200x900/filters:focal(454x218:626x390)/cdn.vox-cdn.com/uploads/chorus_image/image/59417067/shepherdess.0.jpg" alt="Image">
                 </div>
                 <div class="effect-text">
                     <h2>Breakfast</h2>
@@ -262,8 +264,15 @@
 </script>
 
 <style scoped>
-    @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap");
-    
+    @import url('https://fonts.googleapis.com/css2?family=Cabin:wght@500&display=swap');
+
+    * {
+        font-family: 'Cabin', sans-serif;
+        font-size: 1rem;
+    }
+
+
+
     #my-slider {
         position: relative;
         top: -0.1rem;
@@ -281,14 +290,17 @@
         position: relative;
         top: 2rem;
         margin: auto;
-        
+
     }
+
     .intro-text {
         text-align: center;
+        position: relative;
+        top: 0.5rem;
     }
 
     h1 {
-        font-size:2rem;
+        font-size: 2rem;
         text-align: center;
         margin: auto;
         font-weight: bold;
@@ -301,7 +313,7 @@
         width: 100%
     }
 
-    .meal-title {
+    .meal-title p {
         width: 100%;
         font-size: 1.5rem;
         text-align: center;
@@ -415,8 +427,8 @@
         }
 
         #intro-box {
-             width: 70%;
-          
+            width: 70%;
+
         }
 
     }
@@ -430,8 +442,8 @@
         }
 
         #intro-box {
-             width: 60%;
-           
+            width: 60%;
+
         }
 
 

@@ -214,7 +214,12 @@
 </script>
 
 <style scoped>
-    @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap");
+    @import url('https://fonts.googleapis.com/css2?family=Cabin:wght@500&display=swap');
+
+    * {
+        font-family: 'Cabin', sans-serif;
+        font-size: 1rem;
+    }
 
     .parent {
         display: flex;
@@ -225,7 +230,7 @@
     }
 
     #recipe-img {
-        width:25rem;
+        width: 25rem;
         height: auto;
         display: block;
         margin: auto;
@@ -307,57 +312,59 @@
         .parent {
             display: grid;
             grid-template-columns: auto auto auto auto;
-            grid-template-rows: auto auto auto ;
+            grid-template-rows: auto auto auto;
             grid-column-gap: 1rem;
             grid-row-gap: 4rem;
             width: 90%;
             margin: auto;
         }
+
         #recipe-img {
-            width:20rem
+            width: 20rem
         }
 
         .div1 {
             grid-area: 1 / 1 / 2 / 2;
-            border: 1px solid red;
-            
+
+
         }
 
         .div2 {
             grid-area: 1 / 2/ 2 / 5;
-            border: 1px solid red;
+
             display: flex;
             flex-direction: column;
             align-items: flex-start;
             margin-left: -1rem;
 
         }
+
         .name-source {
             align-items: flex-start;
         }
 
         .div3 {
             grid-area: 2 / 1 / 3 / 2;
-            border: 1px solid red;
+
             margin-top: 0rem;
         }
 
         .div4 {
             grid-area: 2 / 2 / 3 / 5;
-            border: 1px solid red;
+
             margin-top: 0rem;
         }
 
         .div5 {
             grid-area: 3 / 1 / 4 / 3;
-            border: 1px solid red;
+
             margin-top: 0rem;
         }
 
         .div6 {
             grid-area: 3 / 3 / 4 / 5;
-            margin-top: 0rem;
-             border: 1px solid red;
+            margin-top: 2rem;
+
         }
 
         .div7 {
@@ -395,17 +402,17 @@
 
     .div3 {
         grid-area: 2 / 1 / 3 / 2;
-        border: 1px solid red;
+        
     }
 
     .div4 {
         grid-area: 2 / 2 / 3 / 5;
-        border: 1px solid red;
+        
     }
 
     .div5 {
         grid-area: 3 / 1 / 4 / 2;
-         border: 1px solid red;
+         
     }
 
     .div6 {
