@@ -165,7 +165,7 @@
 
         created() {
             axios
-                .get(`https://api.spoonacular.com/recipes/complexSearch?${this.$route.params.category}&apiKey=5900942a331f4623910b3ff1631c6b1b&number=10`)
+                .get(`https://api.spoonacular.com/recipes/complexSearch?${this.$route.params.category}&apiKey=5900942a331f4623910b3ff1631c6b1b&number=24`)
                 .then(response => {
                     console.log(response.data.results);
                     this.foodRecipes = response.data.results;
