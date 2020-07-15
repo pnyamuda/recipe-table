@@ -3,9 +3,7 @@
 
 
         <div>
-
-
-
+            
 
             <div class="parent">
                 <div class="div1"><img id="recipe-img" v-bind:src="src"></div>
@@ -74,7 +72,7 @@
         </div>
 
 
-
+<Loader></Loader>
 
 
 
@@ -83,6 +81,7 @@
 
 <script>
     import axios from "axios";
+    import Loader from "./Loader.vue";
     import {
         mdbTbl,
         mdbTblHead,
@@ -104,6 +103,7 @@
             mdbTblBody,
             mdbScrollbar,
             BalancedChart,
+            Loader
 
         },
         data() {
@@ -128,6 +128,15 @@
 
         },
         created() {
+            //first running the loader
+
+            eventBus.$on("runLoader", myFunction => {
+                myFunction();
+            })
+
+
+            //then collectiong the recipe title, instructions etc
+
             axios
                 .get(`https://api.spoonacular.com/recipes/${this.$route.params.information}/information?apiKey=5900942a331f4623910b3ff1631c6b1b`)
                 .then(info => {
@@ -176,29 +185,15 @@
                     this.balancedDiet = majorNutri
                     console.log(this.balancedDiet);
 
-                    //emittig an event;
-
-                    eventBus.$emit("newInfo", this.balancedDiet)
+                    //emittig events;
 
 
-                    /*
+                    eventBus.$emit("newInfo", this.balancedDiet);
 
-                        this.name = info.recipe.label;
-                        this.src = info.recipe.image;
-                        this.ingredients = info.recipe.ingredientLines;
-                        this.servings = info.recipe.yield;
-                        this.time = info.recipe.totalTime;
-                       
-                        this.source = info.recipe.source;
-                        //changing all the numbers to 2 decimal places
-                        this.totalNutrients = info.recipe.digest.reduce((acc, next) => {
-                            next.daily = next.daily.toFixed(2);
-                            next.total = next.total.toFixed(2);
-                            acc.push(next);
-                            return acc
-                        }, [])
-                        this.dailyPer = info.recipe.totalDaily;
-                        */
+                    eventBus.$emit("stopLoader", false);
+
+
+
 
                 })
                 .catch(err => {

@@ -1,5 +1,6 @@
 <template>
     <div>
+        
         <div id="advancedSearch">
 
             <HealthSearch class="selector" v-on:valueChanged="addHealthLabels($event)"></HealthSearch>
@@ -40,29 +41,7 @@
         </div>
 
 
-
-
-
-        <!--
-        <div class="myImg">
-
-            <div class="myLove" v-for="foodRecipe in foodRecipes" :key="foodRecipe.id" v-on:click="myRecipe">
-
-                <div v-bind:id="foodRecipe.id" class="contenedor" v-bind:style="'background:url('+foodRecipe.image+')'">
-                    <h1 class="image-text"></h1>
-                    <p></p>
-                </div>
-
-                <div v-bind:id="foodRecipe.id" class="nombre"></div>
-
-            </div>
-
-
-
-        </div>
--->
-
-
+<Loader></Loader>
 
     </div>
 </template>
@@ -70,9 +49,14 @@
 <script>
     import axios from "axios";
     import HealthSearch from "./HealthSearch.vue";
+    import Loader from "./Loader.vue";
 
     import DishSearch from "./DishSearch.vue";
     import CuisineSearch from "./CuisineSearch.vue";
+    import {
+        eventBus
+    } from '../main'
+
 
     import {
         mdbInput,
@@ -90,6 +74,7 @@
             mdbInput,
             mdbBtn,
             mdbFormInline,
+            Loader
 
         },
         data() {
@@ -115,11 +100,21 @@
                 this.cuisineLabels = cuisines;
             },
             fetchRecipeRequest(par) {
+                //running the loader
+                eventBus.$on("runLoader", myFunction => {
+                    myFunction();
+                })
+
+
                 axios
-                    .get(`https://api.spoonacular.com/recipes/complexSearch?query=${this.searchFood}&apiKey=5900942a331f4623910b3ff1631c6b1b${par}&number=24`)
+                    .get(`https://api.spoonacular.com/recipes/complexSearch?query=${this.searchFood}&apiKey=5900942a331f4623910b3ff1631c6b1b${par}&number=10`)
                     .then(response => {
                         this.foodRecipes = response.data.results;
                         console.log(response.data.results);
+
+                        //stopping the loader
+
+                        eventBus.$emit("stopLoader", false);
 
                     })
                     .catch(er => {
@@ -164,12 +159,20 @@
         },
 
         created() {
+            //starting the loader
+            eventBus.$on("runLoader", myFunction => {
+                myFunction();
+            })
+
+
             axios
-                .get(`https://api.spoonacular.com/recipes/complexSearch?${this.$route.params.category}&apiKey=5900942a331f4623910b3ff1631c6b1b&number=24`)
+                .get(`https://api.spoonacular.com/recipes/complexSearch?${this.$route.params.category}&apiKey=5900942a331f4623910b3ff1631c6b1b&number=10`)
                 .then(response => {
                     console.log(response.data.results);
                     this.foodRecipes = response.data.results;
 
+                    //stopping the loader
+                    eventBus.$emit("stopLoader", false);
 
                 })
                 .catch(err => {
@@ -182,15 +185,13 @@
 </script>
 
 <style scoped>
-    
-    
     @import url('https://fonts.googleapis.com/css2?family=Cabin:wght@500&display=swap');
 
     * {
-       font-family: 'Cabin', sans-serif;
+        font-family: 'Cabin', sans-serif;
         font-size: 1rem;
     }
- 
+
 
     *,
     *:before,
