@@ -1,8 +1,8 @@
 <template>
     <div class="vld-parent">
-        <loading :color="color" :loader="loader" :active.sync="isLoading" :can-cancel="true" :on-cancel="onCancel" :is-full-page="fullPage"></loading>
+        <loading :color="color" :loader="loader" :active.sync="isLoading" :can-cancel="false" :on-cancel="onCancel" :is-full-page="fullPage"></loading>
 
-   <!--     <label><input type="checkbox" v-model="fullPage">Full page?</label>
+        <!--     <label><input type="checkbox" v-model="fullPage">Full page?</label>
         <button @click.prevent="doAjax">fetch Data</button> -->
     </div>
 </template>
@@ -23,8 +23,8 @@
             return {
                 isLoading: false,
                 fullPage: true,
-                color:"green",
-                loader:"bars"
+                color: "green",
+                loader: "bars"
             }
         },
         components: {
@@ -34,22 +34,24 @@
             doAjax() {
                 this.isLoading = true;
                 // simulate AJAX
-            /*    setTimeout(() => {
-                    this.isLoading = false
-                }, 5000) */
+                /*    setTimeout(() => {
+                        this.isLoading = false
+                    }, 5000) */
             },
             onCancel() {
                 console.log('User cancelled the loader.')
             }
         },
         created() {
-            eventBus.$emit("runLoader",this.doAjax);
-            
-            eventBus.$on("stopLoader",par=> {
-                this.isLoading=par;
+            eventBus.$emit("runLoader", this.doAjax);
+
+            eventBus.$on("stopLoader", par => {
+                setTimeout(() => {
+                    this.isLoading = par;
+                }, 500)
             })
-            
-         
+
+
 
         }
     }

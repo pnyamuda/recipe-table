@@ -3,7 +3,7 @@
 
 
         <div>
-            
+
 
             <div class="parent">
                 <div class="div1"><img id="recipe-img" v-bind:src="src"></div>
@@ -72,7 +72,7 @@
         </div>
 
 
-<Loader></Loader>
+        <Loader></Loader>
 
 
 
@@ -200,6 +200,19 @@
                     console.log(err)
                 })
 
+
+           /* //related recipes
+            axios
+                .get(`https://api.spoonacular.com/recipes/${this.$route.params.information}/similar?number=6&apiKey=5900942a331f4623910b3ff1631c6b1b`)
+                .then(info => {
+
+                    console.log(info.data);
+
+                })
+                .catch(err => {
+                    console.log(err)
+                })
+*/
 
 
 
