@@ -107,7 +107,7 @@
 
 
                 axios
-                    .get(`https://api.spoonacular.com/recipes/complexSearch?query=${this.searchFood}&apiKey=5900942a331f4623910b3ff1631c6b1b${par}&number=10`)
+                    .get(`https://api.spoonacular.com/recipes/complexSearch?query=${this.searchFood}&apiKey=5900942a331f4623910b3ff1631c6b1b${par}&number=24`)
                     .then(response => {
                         this.foodRecipes = response.data.results;
                         console.log(response.data.results);
@@ -166,7 +166,7 @@
 
 
             axios
-                .get(`https://api.spoonacular.com/recipes/complexSearch?${this.$route.params.category}&apiKey=5900942a331f4623910b3ff1631c6b1b&number=10`)
+                .get(`https://api.spoonacular.com/recipes/complexSearch?${this.$route.params.category}&apiKey=5900942a331f4623910b3ff1631c6b1b&number=24`)
                 .then(response => {
                     console.log(response.data.results);
                     this.foodRecipes = response.data.results;
