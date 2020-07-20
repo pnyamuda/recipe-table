@@ -13,6 +13,21 @@
         </div>
 
 
+
+
+        <div id="did-know">
+            <div class="container">
+                <!-- code here -->
+                <aside>
+                    <small>Did you know?</small>
+                    <p>{{trivia}}</p>
+                </aside>
+            </div>
+
+
+        </div>
+
+
         <div class="meal-title">
 
             <p>Type of Meals</p>
@@ -224,6 +239,7 @@
 <script>
     //import HomeImages from "./HomeImages.vue";
     import ImageSlide from "./ImageSlide.vue";
+    import axios from "axios";
 
     export default {
         name: "HomePage",
@@ -243,7 +259,8 @@
                 balanced: "balanced",
                 vegetarian: "vegetarian",
                 vegan: "vegan",
-                'low-sugar': "low-sugar"
+                'low-sugar': "low-sugar",
+                trivia: "",
 
 
 
@@ -254,6 +271,24 @@
             displayFoodType(type) {
                 this.$router.push(`search/${type}`)
             } */
+
+        },
+        created() {
+
+            axios
+                .get('https://api.spoonacular.com/food/trivia/random?apiKey=5900942a331f4623910b3ff1631c6b1b')
+                .then(response => {
+
+                    console.log(response.data.text);
+                    this.trivia = response.data.text
+
+
+                })
+                .catch(er => {
+                    console.log(er)
+                })
+
+
 
         },
         mounted() {
@@ -270,6 +305,74 @@
         font-family: 'Cabin', sans-serif;
         font-size: 1rem;
     }
+
+
+
+
+
+
+
+    aside {
+        position: relative;
+        padding: 1.5rem;
+        font-size: 1.125rem;
+        font-weight: 600;
+        max-width: 700px;
+        border-top: 4px solid;
+        border-left: 4px solid;
+        border-bottom: 4px solid;
+        border-image-slice: 1;
+        border-image-source: linear-gradient(90deg, #14b1ab, transparent);
+    }
+
+    aside small {
+        position: absolute;
+        left: -1.5rem;
+        top: calc(-1.25rem - 2px);
+        height: 2.5rem;
+        font-size: .875em;
+        font-weight: 700;
+        letter-spacing: .05em;
+        text-transform: uppercase;
+        display: -webkit-box;
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        padding: 0 .5rem;
+        background-color: #ffffff;
+    }
+
+
+
+    .container {
+        position: relative;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        display: -webkit-box;
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        justify-content: center;
+        padding: 2rem;
+        
+    }
+    #did-know {
+        position: relative;
+        margin: auto;
+        margin-top: 4rem;
+    }
+
+
+
+
+
+
+
+
 
 
 
