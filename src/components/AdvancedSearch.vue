@@ -346,6 +346,7 @@
         width: 95%;
         margin: auto;
         align-items: center;
+        height: 20rem;
     }
 
     .recipe-grid {
@@ -355,7 +356,6 @@
         grid-template-rows: auto;
         grid-column-gap: 5%;
         margin: auto;
-        border: 1px solid red;
 
     }
 
@@ -417,13 +417,17 @@
         background: #ffffff;
         text-decoration: none;
     }
+      #search-input {
+            margin-top: 1.5rem
+        }
+
 
     @media (min-width:480px) and (max-width:768px) {
         .myImg {
             display: grid;
             grid-template-columns: 48% 48%;
             grid-column-gap: 2%;
-            border: 1px solid red;
+            
         }
 
 
@@ -489,7 +493,7 @@
         }
 
         .myImg {
-            top: 3rem;
+            top: 1rem;
         }
 
 

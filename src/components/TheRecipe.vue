@@ -333,6 +333,7 @@
 
         .div1 {
             grid-area: 1 / 1 / 2 / 2;
+            margin-left: 0.5rem;
 
 
         }

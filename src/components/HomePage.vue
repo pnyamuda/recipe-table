@@ -15,7 +15,7 @@
 
 
 
-        <div id="did-know">
+        <div id="did-know" v-show="know">
             <div class="container">
                 <!-- code here -->
                 <aside>
@@ -261,6 +261,7 @@
                 vegan: "vegan",
                 'low-sugar': "low-sugar",
                 trivia: "",
+                know:true,
 
 
 
@@ -285,7 +286,8 @@
 
                 })
                 .catch(er => {
-                    console.log(er)
+                    console.log(er);
+                this.know=false
                 })
 
 
