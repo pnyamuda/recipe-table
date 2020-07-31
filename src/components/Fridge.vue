@@ -1,15 +1,16 @@
 <template>
     <div id="">
-        <div>
+        <div class="my-fridge">
             <img src="https://cnet4.cbsistatic.com/img/UTTvA8qQKoJ995Egi3hbu-xaMNQ=/940x528/2017/07/19/c55ecc52-448a-4bd5-8227-6fd77a60f239/ht-31things.jpg">
-            <p>Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry?Find recipes that use as many of the given ingredients as possible and require as few additional ingredients as possible.</p>
+            <p>Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? Find recipes that use as many of the given ingredients as possible and require as few additional ingredients as possible.</p>
         </div>
 
-        <div>
+        <div class="search-block">
+            <p id="list-title">List all your ingredients, separated by a comma</p>
             <section class="preview">
 
-
-                <mdb-input class="mt-0 mb-3" placeholder="add the comma sepeated ingredients" ariaDescribedBy="button-addon2" v-model="ingred">
+                
+                <mdb-input class="mt-0 mb-3" placeholder="add the comma separated ingredients" ariaDescribedBy="button-addon2" v-model="ingred">
                     <mdb-btn @click="searchRec" color="default" size="md" group slot="append" id="button-addon2">Search Recipes</mdb-btn>
                 </mdb-input>
 
@@ -37,7 +38,7 @@
 
 
         </div>
-<p>{{ingred}}</p>
+        <p>{{ingred}}</p>
 
         <Loader></Loader>
     </div>
@@ -92,7 +93,7 @@
                 axios
                     .get(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=5900942a331f4623910b3ff1631c6b1b&ingredients=${par}`)
                     .then(response => {
-                      this.foodRecipes = response.data;
+                        this.foodRecipes = response.data;
                         console.log(response);
 
                         //stopping the loader
@@ -109,20 +110,19 @@
             //changing a comman separeted string into an array
             searchRec() {
                 let word = "";
-                let arr=this.ingred.split("");
-                let items = arr.reduce((acc, next,indx) => {
-                    if(indx===arr.length-1) {
-                         word+=next;
-                         acc.push('+'+word);
-                    } 
-                    else if(next === ',') {
-                        acc.push('+'+word);
+                let arr = this.ingred.split("");
+                let items = arr.reduce((acc, next, indx) => {
+                    if (indx === arr.length - 1) {
+                        word += next;
+                        acc.push('+' + word);
+                    } else if (next === ',') {
+                        acc.push('+' + word);
                         word = "";
-                    }else {
-                        word+=next
+                    } else {
+                        word += next
                     }
                     return acc
-                },[]);
+                }, []);
                 this.requestIngredients = items.join();
                 this.fridgeRecipes(this.requestIngredients)
             }
@@ -134,12 +134,40 @@
 </script>
 
 <style scoped>
+    .my-fridge {
+        width: 90%;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        text-align: center;
+    }
+
+    .my-fridge img {
+        max-width: 100%;
+        display: block;
+        height: auto;
+    }
+
+    .my-fridge p {
+        margin-top: 0.5rem;
+        font-size: 1.5rem;
+    }
+
     section.preview {
         border: 1px solid #e0e0e0;
         padding: 15px;
+        width: 90%;
+        margin: auto;
     }
-
-
+    #list-title {
+        text-align: center;
+      
+    }
+    .search-block {
+        width: 100%;
+        margin-top: 2rem;
+    }
 
 
     .container {
@@ -268,22 +296,22 @@
         font-size: 1.5rem;
         margin-top: 1rem;
     }
-    
-    
-    
-     @media (min-width:480px) and (max-width:768px) {
+
+
+
+    @media (min-width:480px) and (max-width:768px) {
         .myImg {
             display: grid;
             grid-template-columns: 48% 48%;
             grid-column-gap: 2%;
-            
+
         }
 
 
     }
 
     @media (min-width:768.1px) and (max-width:1023.9px) {
-       
+
         .selector {
             margin-top: -2rem;
             height: 6rem;
@@ -328,6 +356,5 @@
 
 
     }
-
 
 </style>
