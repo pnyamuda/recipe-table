@@ -231,6 +231,8 @@
 
 
         </div>
+        
+        <Loader></Loader>
 
 
     </div>
@@ -240,12 +242,17 @@
     //import HomeImages from "./HomeImages.vue";
     import ImageSlide from "./ImageSlide.vue";
     import axios from "axios";
+    import Loader from "./Loader.vue";
+    import {
+        eventBus
+    } from '../main'
 
     export default {
         name: "HomePage",
         components: {
             // HomeImages,
             ImageSlide,
+            Loader
         },
         data() {
             return {
@@ -275,6 +282,9 @@
 
         },
         created() {
+            eventBus.$on("runLoader", myFunction => {
+                myFunction();
+            })
 
             axios
                 .get('https://api.spoonacular.com/food/trivia/random?apiKey=5900942a331f4623910b3ff1631c6b1b')
@@ -282,6 +292,8 @@
 
                     console.log(response.data.text);
                     this.trivia = response.data.text
+                
+                 eventBus.$emit("stopLoader", false);
 
 
                 })

@@ -9,7 +9,7 @@
             <p id="list-title">List all your ingredients, separated by a comma</p>
             <section class="preview">
 
-                
+
                 <mdb-input class="mt-0 mb-3" placeholder="add the comma separated ingredients" ariaDescribedBy="button-addon2" v-model="ingred">
                     <mdb-btn @click="searchRec" color="default" size="md" group slot="append" id="button-addon2">Search Recipes</mdb-btn>
                 </mdb-input>
@@ -38,7 +38,6 @@
 
 
         </div>
-        <p>{{ingred}}</p>
 
         <Loader></Loader>
     </div>
@@ -85,13 +84,14 @@
             fridgeRecipes(par) {
 
                 //running the loader
-                eventBus.$on("runLoader", myFunction => {
-                    myFunction();
-                })
+                // eventBus.$on("runLoader", myFunction => {
+                //       myFunction();
+                //  });
+                eventBus.$emit("stopLoader", true);
 
 
                 axios
-                    .get(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=5900942a331f4623910b3ff1631c6b1b&ingredients=${par}`)
+                    .get(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=5900942a331f4623910b3ff1631c6b1b&ingredients=${par}&number=12`)
                     .then(response => {
                         this.foodRecipes = response.data;
                         console.log(response);
@@ -128,6 +128,29 @@
             }
 
         },
+        created() {
+            //starting the loader
+            eventBus.$on("runLoader", myFunction => {
+                myFunction();
+            })
+
+            axios
+                .get('https://api.spoonacular.com/recipes/random?apiKey=5900942a331f4623910b3ff1631c6b1b&number=12')
+                .then(response => {
+                    this.foodRecipes = response.data.recipes;
+                    console.log(response.data.recipes);
+
+                    //stopping the loader
+
+                    eventBus.$emit("stopLoader", false);
+
+                })
+                .catch(er => {
+                    console.log(er)
+                })
+
+        }
+
 
     };
 
@@ -157,16 +180,20 @@
     section.preview {
         border: 1px solid #e0e0e0;
         padding: 15px;
-        width: 90%;
+        width: 100%;
         margin: auto;
     }
+
     #list-title {
         text-align: center;
-      
+
     }
+
     .search-block {
-        width: 100%;
+        width: 90%;
         margin-top: 2rem;
+        margin: auto;
+
     }
 
 
@@ -307,6 +334,14 @@
 
         }
 
+        .search-block {
+            width: 70%;
+        }
+
+        .my-fridge {
+            width: 80%;
+        }
+
 
     }
 
@@ -326,6 +361,16 @@
             grid-template-columns: 32.5% 32.5% 32.5%;
             grid-column-gap: 2.5%;
         }
+
+        .search-block {
+            width: 50%;
+        }
+
+        .my-fridge {
+            width: 70%;
+        }
+
+
 
 
 
@@ -352,6 +397,17 @@
         .myImg {
             top: 1rem;
         }
+
+        .search-block {
+            width: 50%;
+            margin-top: 3rem;
+        }
+
+        .my-fridge {
+            width: 60%;
+        }
+
+
 
 
 

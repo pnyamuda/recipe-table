@@ -55,7 +55,7 @@
     import CuisineSearch from "./CuisineSearch.vue";
     import {
         eventBus
-    } from '../main'
+    } from '../main';
 
 
     import {
@@ -101,10 +101,7 @@
             },
             fetchRecipeRequest(par) {
                 //running the loader
-                eventBus.$on("runLoader", myFunction => {
-                    myFunction();
-                })
-
+               eventBus.$emit("stopLoader", true);
 
                 axios
                     .get(`https://api.spoonacular.com/recipes/complexSearch?query=${this.searchFood}&apiKey=5900942a331f4623910b3ff1631c6b1b${par}&number=24`)
@@ -160,7 +157,7 @@
 
         created() {
             //starting the loader
-            eventBus.$on("runLoader", myFunction => {
+           eventBus.$on("runLoader", myFunction => {
                 myFunction();
             })
 

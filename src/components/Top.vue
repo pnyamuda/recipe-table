@@ -14,6 +14,9 @@
                         <mdb-nav-item href="#">
                             <router-link to="/search/recipe" exact><span class="my-links">Advanced Search</span></router-link>
                         </mdb-nav-item>
+                         <mdb-nav-item href="#">
+                            <router-link to="/recipes-in-your-fridge" exact><span class="my-links">What's in your Fridge</span></router-link>
+                        </mdb-nav-item>
                         <!--         <mdb-dropdown tag="li" class="nav-item">
                             <mdb-dropdown-toggle tag="a" navLink color="default-color-dark" slot="toggle" waves-fixed>Dropdown</mdb-dropdown-toggle>
                             <mdb-dropdown-menu>
