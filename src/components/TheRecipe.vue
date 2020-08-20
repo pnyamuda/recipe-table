@@ -201,7 +201,7 @@
                 })
 
 
-           /* //related recipes
+            /* //related recipes
             axios
                 .get(`https://api.spoonacular.com/recipes/${this.$route.params.information}/similar?number=6&apiKey=5900942a331f4623910b3ff1631c6b1b`)
                 .then(info => {
@@ -242,6 +242,7 @@
         height: auto;
         display: block;
         margin: auto;
+       
     }
 
     .div2 {
@@ -261,6 +262,7 @@
         flex-direction: column;
         align-items: center;
         width: 100%;
+        
 
     }
 
@@ -334,6 +336,8 @@
         .div1 {
             grid-area: 1 / 1 / 2 / 2;
             margin-left: 0.5rem;
+            
+           
 
 
         }
@@ -345,7 +349,18 @@
             flex-direction: column;
             align-items: flex-start;
             margin-left: -1rem;
+            padding-left: 1rem;
+           
+        }
 
+        #recipe-name {
+            text-align:start;
+        }
+        #recipe-source {
+           
+            
+        }
+        #time-box p {
         }
 
         .name-source {

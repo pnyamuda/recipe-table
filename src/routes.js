@@ -2,6 +2,7 @@ import HomePage from "./components/HomePage.vue";
 import AdvancedSearch from "./components/AdvancedSearch.vue";
 import TheRecipe from "./components/TheRecipe.vue";
 import Fridge from "./components/Fridge.vue";
+import NaturaLanguage from "./components/NaturaLanguage.vue";
 
 
 
@@ -28,6 +29,11 @@ export default [
     {
 		path: '/recipes-in-your-fridge',
 		component:Fridge,
+		
+	},
+     {
+		path: '/natural-language',
+		component:NaturaLanguage,
 		
 	}
 ]

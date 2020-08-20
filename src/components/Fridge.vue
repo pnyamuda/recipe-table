@@ -10,7 +10,7 @@
             <section class="preview">
 
 
-                <mdb-input class="mt-0 mb-3" placeholder="add the comma separated ingredients" ariaDescribedBy="button-addon2" v-model="ingred">
+                <mdb-input class="mt-0 mb-3" placeholder="add the ingredients" ariaDescribedBy="button-addon2" v-model="ingred">
                     <mdb-btn @click="searchRec" color="default" size="md" group slot="append" id="button-addon2">Search Recipes</mdb-btn>
                 </mdb-input>
 
@@ -164,6 +164,7 @@
         flex-direction: column;
         justify-content: space-around;
         text-align: center;
+        margin-top: 1rem;
     }
 
     .my-fridge img {
@@ -404,7 +405,17 @@
         }
 
         .my-fridge {
-            width: 60%;
+            width: 90%;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            background-color: rgba(32, 32, 32, 0.8);
+            color: #ffffff;
+            box-shadow: 1px 2px 5px 6px rgba(32,32,32,0.3);
+        }
+
+        .my-fridge p {
+            padding-left: 1rem;
+            padding-right: 1rem;
         }
 
 
