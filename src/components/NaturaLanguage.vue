@@ -18,14 +18,13 @@
                                     <mdb-card class="desk-card">
                                         <mdb-view hover>
                                             <a href="#!">
-                                                <mdb-card-image src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20%282%29.jpg" alt="Card image cap" />
+                                                <mdb-card-image src="https://i.insider.com/5a5f8c2cf421493e0d8b5487?width=1100&format=jpeg&auto=webp" alt="Card image cap" />
                                                 <mdb-mask flex-center waves overlay="white-slight"></mdb-mask>
                                             </a>
                                         </mdb-view>
                                         <mdb-card-body>
-                                            <mdb-card-title>Card with waves effect</mdb-card-title>
-                                            <mdb-card-text>Some quick example text to build on the card title and make up the bulk of the card's content.</mdb-card-text>
-                                            <mdb-btn color="primary">Button</mdb-btn>
+                                            <mdb-card-title>Calories Burned</mdb-card-title>
+                                            <mdb-card-title>&#8776; {{totalCalories}}</mdb-card-title>
                                         </mdb-card-body>
                                     </mdb-card>
                                 </mdb-col>
@@ -35,16 +34,17 @@
                                             <mdb-icon icon="desktop" class="pr-1" />Calories</h6>
                                     </a>
                                     <h4 class="h4 mb-4"> Estimate calories burned for various exercises using natural language</h4>
-                                    <p class="font-weight-normal">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque, totam
-                                        rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
-                                        dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur.</p>
+                                    <p class="font-weight-normal">Whether you're trying to lose weight, want to know how much to fuel your body after a workout, or are just curious about how many calories you burned during exercise, you can estimate your calorie expenditure by using an artificial intelligence based  calculator. It uses Natural Language Processing to estimate calories burned for various exercises. So you can enter as many actavities as you want.</p>
                                     <p class="font-weight-normal">Enter your workout</p>
 
                                     <mdb-input type="textarea" id="exampleInput" label="Example: ran 3 miles, 30 min weight lifting" v-model="workoutText" />
 
-                                    <mdb-input label="your age, weight(kg), gender in that order" />
+                                    <mdb-input class="theInp" label="your age" v-model="age" />
+                                    <mdb-input class="theInp" label="weight(kg)" v-model="weight" />
+                                    <mdb-input class="theInp" label="height(cm)" v-model="height" />
+                                    <mdb-input class="theInp" label="gender(female/male)" v-model="gender" />
 
-                                    <mdb-btn color="success">Calculate Exercise</mdb-btn>
+                                    <mdb-btn color="success" @click='callPostFuction'>Calculate Exercise</mdb-btn>
                                     <div id="mobile-card">
                                         <mdb-card>
                                             <mdb-view hover>
@@ -144,8 +144,8 @@
                 </div>
             </mdb-tabs>
         </div>
-        
-        <input @click='postExercise' type="button" value="my button" style="margin-top:2rem;">
+
+        <input @click='callPostFuction' type="button" value="my button" style="margin-top:2rem;">
 
         <p>{{workoutText}}</p>
 
@@ -158,7 +158,6 @@
 
 
 <script>
-    import {fetchCalories} from '../naturalRequest';
     //import axios from "axios";
     import {
         mdbCard,
@@ -205,44 +204,72 @@
             return {
                 exerciseQuery: "",
                 workoutText: "",
-
+                age: "",
+                weight: "",
+                gender: "",
+                height: "",
+                totalCalories: 0
             }
         },
         methods: {
-            postExercise() {
-                fetchCalories()
-            }
-            /*
-            fetchCalories() {
-                console.log('clicked')
-                this.postExercise()
+            callPostFuction() {
+                let theBody = {};
+                Object.assign(theBody, {
+                    "query": this.workoutText,
+                    "gender": this.gender,
+                    "weight_kg": this.weight,
+                    "height_cm": this.height,
+                    "age": this.age
+                });
+                this.postExercise(theBody)
 
             },
-            postExercise() {
-                axios.post("https://trackapi.nutritionix.com/v2/natural/exercise",{
-                        headers:{
-                            "x-app-key":"76abf843077e9817f6a2139ae1b91e16",
-                            "x-app-id":"c4d6ac49",
-                            "x-remote-user-id":0,
-                            "Content-Type":"application/json"
-                        },
-                        body:{
-                            "query":"ran 3 miles",
-                            "gender":"female",
-                            "weight_kg":72.5,
-                            "height_cm":167.64,
-                            "age":30
-                        }
-                    })
-                    .then(response => {
-                        console.log(response)
-                    })
-                    .catch(err => {
-                        console.log('your error pierce:'+err)
-                    })
+             /*the response from the http request from 'postExercise' is an object with 
+             only one property 'exercises'. This property's value is an array of objects.
+             Extracting the values of the property 'nf_calories' from those inner objects
+             and adding them to the property 'totalCalories' */
+            extractCalories(par) {
+                let copy = par.slice();
+                while (copy.length > 0) {
+                    this.totalCalories += Math.round(copy.shift()['nf_calories']);
+                    return this.extractCalories(copy)
+                }
 
-            }*/
+            },
+            postExercise(bodyObject) {
+                var myHeaders = new Headers();
+                myHeaders.append("x-app-id", "c4d6ac49");
+                myHeaders.append("x-app-key", "c1966ef7b707a2c46416ab58f5f434ba");
+                myHeaders.append("x-remote-user-id", "0");
+                myHeaders.append("Content-Type", "application/json");
+
+                var raw = JSON.stringify(bodyObject);
+
+                var requestOptions = {
+                    method: 'POST',
+                    headers: myHeaders,
+                    body: raw,
+                    redirect: 'follow'
+                };
+
+
+                fetch("https://trackapi.nutritionix.com/v2/natural/exercise", requestOptions)
+                    .then(response => response.json())
+                    .then(result => {
+                        console.log(result);
+                        this.extractCalories(result.exercises)
+
+                    })
+                    .catch(error => {
+                        console.log('error', error);
+                    });
+
+
+
+            }
+
         }
+
     };
     //@input="" 
 
@@ -250,6 +277,10 @@
 
 
 <style>
+    .theInp {
+        width: 25%;
+    }
+
     #parentContainer {
         width: 100%;
         border: 1px solid red
