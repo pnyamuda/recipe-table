@@ -2,23 +2,23 @@
     <div id="my-block">
 
         <div id="nav-container">
-            <mdb-navbar color="default-color-dark" dark>
+            <mdb-navbar color="stylish" dark>
                 <mdb-navbar-brand href="https://mdbootstrap.com/">
                     <router-link to="/" exact id="logo-link"><span>Trendy<span id="reci">recipe</span></span></router-link>
                 </mdb-navbar-brand>
                 <mdb-navbar-toggler>
                     <mdb-navbar-nav>
-                        <mdb-nav-item href="#" active>
-                            <router-link to="/" exact><span class="my-links">Home</span></router-link>
+                        <mdb-nav-item active>
+                            <router-link to="/" exact><span class="link2">Home</span></router-link>
                         </mdb-nav-item>
                         <mdb-nav-item href="#">
-                            <router-link to="/search/recipe" exact><span class="my-links">Advanced Search</span></router-link>
+                            <router-link to="/search/recipe" exact><span class="link2">Advanced Search</span></router-link>
                         </mdb-nav-item>
                          <mdb-nav-item href="#">
-                            <router-link to="/recipes-in-your-fridge" exact><span class="my-links">What's in your Fridge</span></router-link>
+                            <router-link to="/recipes-in-your-fridge" exact><span class="link2">Your Fridge</span></router-link>
                         </mdb-nav-item>
                         <mdb-nav-item href="#">
-                            <router-link to="/natural-language" exact><span class="my-links">Calories Burned</span></router-link>
+                            <router-link to="/natural-language" exact><span class="link2">Calories Burned</span></router-link>
                         </mdb-nav-item>
                         <!--         <mdb-dropdown tag="li" class="nav-item">
                             <mdb-dropdown-toggle tag="a" navLink color="default-color-dark" slot="toggle" waves-fixed>Dropdown</mdb-dropdown-toggle>
@@ -100,6 +100,14 @@
      @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Merienda+One&display=swap');
     
      @import url('https://fonts.googleapis.com/css2?family=Cabin:wght@500&display=swap');
+    
+    .link2 {
+        color: #ffffff;
+        transition: all 0.3s ease-in-out;
+    }
+    .link2:hover {
+        color:lightgreen;
+    }
 
     
     .my-links {

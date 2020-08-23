@@ -1,6 +1,6 @@
 <template>
     <!-- Footer -->
-    <mdb-footer color="default-color-dark" dark class="font-small pt-4 mt-4">
+    <mdb-footer color="stylish-color-dark" dark class="font-small pt-4 mt-4">
         <mdb-container class="text-center text-md-left">
             <mdb-row class="text-center text-md-left mt-3 pb-3">
                 <mdb-col md="3" lg="3" xl="3" class="mx-auto mt-3">
@@ -12,8 +12,18 @@
                 <hr class="w-100 clearfix d-md-none" />
                 <mdb-col md="2" lg="2" xl="2" class="mx-auto mt-3">
                     <h6 class="text-uppercase mb-4 font-weight-bold">Trendyrecipe</h6>
-                    <p><router-link to="/" exact><a>Home</a></router-link></p>
-                    <p><router-link to="/search/recipe" exact><a>Advanced Search</a></router-link></p>
+                    <p>
+                        <router-link to="/" exact><span class="link2">Home</span></router-link>
+                    </p>
+                    <p>
+                        <router-link to="/search/recipe" exact><span class="link2">Advanced Search</span></router-link>
+                    </p>
+                    <p>
+                        <router-link to="/recipes-in-your-fridge" exact><span class="link2">Your Fridge</span></router-link>
+                    </p>
+                    <p>
+                        <router-link to="/natural-language" exact><span class="link2">Calories Burned</span></router-link>
+                    </p>
                 </mdb-col>
                 <!--  <hr class="w-100 clearfix d-md-none" />
                 <mdb-col md="3" lg="2" xl="2" class="mx-auto mt-3">
@@ -78,7 +88,17 @@
 
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Cabin:wght@500&display=swap');
-    
+
+    .link2 {
+        color: #ffffff;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .link2:hover {
+        color: lightgreen;
+    }
+
+
     #logo-lin {
         background-color: transparent;
         color: #ffffff;
@@ -91,8 +111,9 @@
         color: lightgray;
 
     }
-    
-    p, h6 {
+
+    p,
+    h6 {
         font-family: 'Cabin', sans-serif;
     }
 
