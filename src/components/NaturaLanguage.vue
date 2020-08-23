@@ -1,11 +1,11 @@
 <template>
     <div id="parentContainer">
         <div id="natural-box">
-
+<!--the other tabs inside the links array:{ text: 'Food' },
+      { text: 'Contact' }-->
             <mdb-tabs :active="0" default :links="[
       { text: 'Exercise', slot: 'custom-slot' },
-      { text: 'Food' },
-      { text: 'Contact' }]" :transition-duration="0.5" transition-style="linear">
+      ]" :transition-duration="0.5" transition-style="linear">
                 <div :slot="'custom-slot'">
                     <mdb-container>
                         <mdb-jumbotron class="text-center hoverable">
@@ -40,9 +40,9 @@
                                     <mdb-input type="textarea" id="exampleInput" label="Example: ran 3 miles, 30 min weight lifting" v-model="workoutText" />
 
                                     <mdb-input class="theInp" label="your age" v-model="age" />
-                                    <mdb-input class="theInp" label="weight(kg)" v-model="weight" />
-                                    <mdb-input class="theInp" label="height(cm)" v-model="height" />
-                                    <mdb-input class="theInp" label="gender(female/male)" v-model="gender" />
+                                    <mdb-input class="theInp" label="weight (kg)" v-model="weight" />
+                                    <mdb-input class="theInp" label="height (cm)" v-model="height" />
+                                    <mdb-input class="theInp" label="gender (female/male)" v-model="gender" />
 
                                     <mdb-btn color="success" @click='callPostFuction'>Calculate Exercise</mdb-btn>
                                     <div id="mobile-card">
@@ -64,7 +64,7 @@
                         </mdb-jumbotron>
                     </mdb-container>
                 </div>
-                <div :slot="'Food'">
+            <!--    <div :slot="'Food'">
                     <mdb-container>
                         <mdb-jumbotron class="text-center hoverable">
                             <mdb-row>
@@ -142,13 +142,10 @@
                         </mdb-jumbotron>
                     </mdb-container>
                 </div>
+-->
             </mdb-tabs>
+
         </div>
-
-        <input @click='callPostFuction' type="button" value="my button" style="margin-top:2rem;">
-
-        <p>{{workoutText}}</p>
-
 
     </div>
 
@@ -176,7 +173,7 @@
         mdbView,
         mdbMask,
         mdbBtn,
-        mdbTextarea,
+       // mdbTextarea,
         mdbInput
     } from 'mdbvue';
 
@@ -192,7 +189,7 @@
             mdbJumbotron,
             mdbMask,
             mdbBtn,
-            mdbTextarea,
+         //   mdbTextarea,
             mdbInput,
             mdbCard,
             mdbCardImage,
@@ -283,7 +280,6 @@
 
     #parentContainer {
         width: 100%;
-        border: 1px solid red
     }
 
     #natural-box {

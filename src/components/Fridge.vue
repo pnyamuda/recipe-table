@@ -1,9 +1,20 @@
 <template>
     <div id="">
-        <div class="my-fridge">
-            <img src="https://cnet4.cbsistatic.com/img/UTTvA8qQKoJ995Egi3hbu-xaMNQ=/940x528/2017/07/19/c55ecc52-448a-4bd5-8227-6fd77a60f239/ht-31things.jpg">
-            <p>Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? Find recipes that use as many of the given ingredients as possible and require as few additional ingredients as possible.</p>
-        </div>
+        <mdb-card class="card-image" style="background-image: url(https://cnet4.cbsistatic.com/img/UTTvA8qQKoJ995Egi3hbu-xaMNQ=/940x528/2017/07/19/c55ecc52-448a-4bd5-8227-6fd77a60f239/ht-31things.jpg)">
+            <div class="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4 rounded">
+                <div>
+                    <h6 class="green-text">
+                        <mdb-icon icon="plane"></mdb-icon><strong> Recipes</strong>
+                    </h6>
+                    <h3 class="py-3 font-weight-bold">
+                        <strong>What do you have in your fridge ?</strong>
+                    </h3>
+                    <p class="pb-3"><p id="ever-wonder">Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? Find recipes that use as many of the given ingredients as possible and require as few additional ingredients as possible.</p>
+                </div>
+            </div>
+        </mdb-card>
+
+
 
         <div class="search-block">
             <p id="list-title">List all your ingredients, separated by a comma</p>
@@ -45,6 +56,11 @@
 
 <script>
     import {
+        mdbCard,
+        mdbIcon,
+       
+    } from 'mdbvue';
+    import {
         mdbInput,
         mdbBtn
     } from 'mdbvue';
@@ -60,7 +76,9 @@
         components: {
             mdbInput,
             mdbBtn,
-            Loader
+            Loader,
+            mdbCard,
+            mdbIcon,
 
         },
         data() {
@@ -157,26 +175,7 @@
 </script>
 
 <style scoped>
-    .my-fridge {
-        width: 90%;
-        margin: auto;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        text-align: center;
-        margin-top: 1rem;
-    }
-
-    .my-fridge img {
-        max-width: 100%;
-        display: block;
-        height: auto;
-    }
-
-    .my-fridge p {
-        margin-top: 0.5rem;
-        font-size: 1.5rem;
-    }
+  
 
     section.preview {
         border: 1px solid #e0e0e0;
@@ -191,8 +190,9 @@
     }
 
     .search-block {
+        position: relative;
         width: 90%;
-        margin-top: 2rem;
+        top: 2rem;
         margin: auto;
 
     }
@@ -294,8 +294,16 @@
 
 
 
-
-
+    .card-image {
+        position: relative;
+        top: -0.1rem;
+    }
+    #ever-wonder {
+        width: 80%;
+        margin: auto;
+        text-align: center;
+        font-size: 1.5rem;
+    }
 
     .myImg {
         display: flex;
@@ -337,6 +345,7 @@
 
         .search-block {
             width: 70%;
+            top: 1.5rem;
         }
 
         .my-fridge {
@@ -365,6 +374,7 @@
 
         .search-block {
             width: 50%;
+            top: 1rem;
         }
 
         .my-fridge {
@@ -403,21 +413,6 @@
             width: 50%;
             margin-top: 3rem;
         }
-
-        .my-fridge {
-            width: 90%;
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            background-color: rgba(32, 32, 32, 0.8);
-            color: #ffffff;
-            box-shadow: 1px 2px 5px 6px rgba(32,32,32,0.3);
-        }
-
-        .my-fridge p {
-            padding-left: 1rem;
-            padding-right: 1rem;
-        }
-
 
 
 
