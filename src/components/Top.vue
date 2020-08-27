@@ -4,10 +4,11 @@
         <div id="nav-container">
             <mdb-navbar color="stylish" dark>
                 <mdb-navbar-brand href="https://mdbootstrap.com/">
-                    <router-link to="/" exact id="logo-link"><span>Trendy<span id="reci">recipe</span></span></router-link>
+                    <!--logo link : logomakr.com/5GuGAL -->
+                    <router-link to="/" exact><img id="logo" src="./assets/LogoMakr_5GuGAL.png" width=""></router-link>
                 </mdb-navbar-brand>
                 <mdb-navbar-toggler>
-                    <mdb-navbar-nav>
+                    <mdb-navbar-nav id="nav-links">
                         <mdb-nav-item active>
                             <router-link to="/" exact><span class="link2">Home</span></router-link>
                         </mdb-nav-item>
@@ -136,18 +137,15 @@
         color: #ffffff;
         font-family: 'Cabin', sans-serif;
     }
-
-    #logo-link {
-        background-color: transparent;
-        color: #ffffff;
-       font-family: 'Lobster', cursive;
-        /* font-family: 'Merienda One', cursive;*/
-        font-size: 2rem;
+    
+    #nav-links {
+        position: relative;
     }
-    #reci {
-        color:lightgray;
+    #logo {
+        width: 10rem;
     }
 
+  
     #nav-container {}
 
 </style>

@@ -42,7 +42,7 @@
                                     <mdb-input class="theInp" label="your age" v-model="age" />
                                     <mdb-input class="theInp" label="weight (kg)" v-model="weight" />
                                     <mdb-input class="theInp" label="height (cm)" v-model="height" />
-                                    <mdb-input class="theInp" label="gender (female/male)" v-model="gender" />
+                                    <mdb-input class="theInp" label="gender" v-model="gender" />
 
                                     <mdb-btn color="success" @click='callPostFuction'>Calculate Exercise</mdb-btn>
                                     <div id="mobile-card">
@@ -169,12 +169,12 @@
         mdbCol,
         mdbRow,
         mdbIcon,
-        mdbTabs,
+     
         mdbJumbotron,
         mdbView,
         mdbMask,
         mdbBtn,
-       // mdbTextarea,
+      // mdbTextarea,
         mdbInput
     } from 'mdbvue';
 
@@ -186,7 +186,6 @@
             mdbRow,
             mdbView,
             mdbIcon,
-            mdbTabs,
             mdbJumbotron,
             mdbMask,
             mdbBtn,
