@@ -104,6 +104,7 @@
     .link2 {
         color: #ffffff;
         transition: all 0.3s ease-in-out;
+        font-family: 'Cabin', sans-serif;
     }
     .link2:hover {
         color:lightgreen;
