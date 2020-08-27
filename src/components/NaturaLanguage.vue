@@ -1,7 +1,7 @@
 <template>
     <div id="parentContainer">
         <div id="natural-box">
-<!--the other tabs inside the links array:{ text: 'Food' },
+            <!--the other tabs inside the links array:{ text: 'Food' },
       { text: 'Contact' }-->
             <mdb-tabs :active="0" default :links="[
       { text: 'Exercise', slot: 'custom-slot' },
@@ -34,7 +34,7 @@
                                             <mdb-icon icon="desktop" class="pr-1" />Calories</h6>
                                     </a>
                                     <h4 class="h4 mb-4"> Estimate calories burned for various exercises using natural language</h4>
-                                    <p class="font-weight-normal">Whether you're trying to lose weight, want to know how much to fuel your body after a workout, or are just curious about how many calories you burned during exercise, you can estimate your calorie expenditure by using an artificial intelligence based  calculator. It uses Natural Language Processing to estimate calories burned for various exercises. So you can enter as many actavities as you want.</p>
+                                    <p class="font-weight-normal">Whether you're trying to lose weight, want to know how much to fuel your body after a workout, or are just curious about how many calories you burned during exercise, you can estimate your calorie expenditure by using an artificial intelligence based calculator. It uses Natural Language Processing to estimate calories burned for various exercises. So you can enter as many actavities as you want.</p>
                                     <p class="font-weight-normal">Enter your workout</p>
 
                                     <mdb-input type="textarea" id="exampleInput" label="Example: ran 3 miles, 30 min weight lifting" v-model="workoutText" />
@@ -64,7 +64,7 @@
                         </mdb-jumbotron>
                     </mdb-container>
                 </div>
-            <!--    <div :slot="'Food'">
+                <!--    <div :slot="'Food'">
                     <mdb-container>
                         <mdb-jumbotron class="text-center hoverable">
                             <mdb-row>
@@ -155,7 +155,6 @@
 
 
 <script>
-    
     //import axios from "axios";
     import {
         mdbCard,
@@ -169,12 +168,12 @@
         mdbCol,
         mdbRow,
         mdbIcon,
-     
+
         mdbJumbotron,
         mdbView,
         mdbMask,
         mdbBtn,
-      // mdbTextarea,
+        // mdbTextarea,
         mdbInput
     } from 'mdbvue';
 
@@ -189,7 +188,7 @@
             mdbJumbotron,
             mdbMask,
             mdbBtn,
-         //   mdbTextarea,
+            //   mdbTextarea,
             mdbInput,
             mdbCard,
             mdbCardImage,
@@ -221,10 +220,10 @@
                 this.postExercise(theBody)
 
             },
-             /*the response from the http request from 'postExercise' is an object with 
-             only one property 'exercises'. This property's value is an array of objects.
-             Extracting the values of the property 'nf_calories' from those inner objects
-             and adding them to the property 'totalCalories' */
+            /*the response from the http request from 'postExercise' is an object with 
+            only one property 'exercises'. This property's value is an array of objects.
+            Extracting the values of the property 'nf_calories' from those inner objects
+            and adding them to the property 'totalCalories' */
             extractCalories(par) {
                 let copy = par.slice();
                 while (copy.length > 0) {
@@ -275,7 +274,7 @@
 
 <style>
     .theInp {
-        width: 25%;
+        width: 50%;
     }
 
     #parentContainer {
@@ -295,6 +294,12 @@
 
     .mobile-pic {
         display: none;
+    }
+
+    @media (min-width:768px) {
+        .theInp {
+            width: 25%;
+        }
     }
 
 </style>

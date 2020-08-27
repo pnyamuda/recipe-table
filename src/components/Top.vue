@@ -143,6 +143,8 @@
     }
     #logo {
         width: 10rem;
+        position: relative;
+        left: -2rem;
     }
 
   
